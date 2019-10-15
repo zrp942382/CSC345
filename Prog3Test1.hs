@@ -1,5 +1,5 @@
 {-
-"Prog3Tests1.hs" - Test Cases for HW 3 -> Prog3.hs
+"Prog3Test1.hs" - Test Cases for HW 3 -> Prog3.hs
 Last Edited: 14 OCT 2019
 West Chester University - CSC 345 - Programming Language Concepts / Paradigms - Fall 2019
 Original format provided by: Richard Burns , distributed with permission.
@@ -9,7 +9,7 @@ AUTHORS GIVE NO GUARANTEES THAT TEST CASES ARE CORRECT OR COMPLETE.
 INTRUCTOR HAS FINAL WORD CONCERNING THE FUNCTIONALITY OF YOUR CODE.
 YOU ARE ENCOURAGED TO TEST YOUR CODE INDEPENDENTLY.
 
-Usage: ghci Prog3Tests; main
+Usage: ghci Prog3Test1; main
 
 Dependencies: cabal update
               cabal install tasty
