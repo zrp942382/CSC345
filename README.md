@@ -15,6 +15,8 @@ from a terminal run the following commands:
 
 Then, from within the same directory, run ghci run the following commands:
 
+```
   :load ProgXTest1.hs
   
   main
+```
