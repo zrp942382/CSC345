@@ -2,7 +2,7 @@
 Haskell Test Cases for CSC 345: Programming Languages and Paradigms
 
 
-ensure that ProgX.hs and ProgXTests1.hs are located in the same directory (replace X with the homework Number).
+ensure that ProgX.hs and ProgXTest1.hs are located in the same directory (replace X with the homework Number).
 from a terminal run the following commands:
 
   cabal update
@@ -13,6 +13,6 @@ from a terminal run the following commands:
 
 Then, from within the same directory, run ghci run the following commands:
 
-  :load ProgXTests1.hs
+  :load ProgXTest1.hs
   
   main
