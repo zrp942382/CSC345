@@ -1,10 +1,8 @@
-# CSC345_TESTCASES
-Haskell Test Cases for CSC 345: Programming Languages and Paradigms
+# CSC345 Haskell Test Cases
+Haskell Test Cases for CSC 345: Programming Languages and Paradigms  
 
-
-ensure that ProgX.hs and ProgXTest1.hs are located in the same directory (replace X with the homework Number).
-from a terminal run the following commands:
-
+## Dependencies
+Run the following commands in a terminal:
 ```
   cabal update
   
@@ -13,10 +11,11 @@ from a terminal run the following commands:
   cabal install tasty-hunit
 ```  
 
-Then, from within the same directory, run ghci run the following commands:
-
+## Instructions
+Ensure that ProgX.hs and ProgXTest.hs are located in the same directory (X is the homework number).
+Then open a terminal from that directory and run the following commands:
 ```
-  :load ProgXTest1.hs
+  ghci ProgXTest.hs
   
   main
 ```
