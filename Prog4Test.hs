@@ -1,5 +1,5 @@
 {-
-"Prog4Test1.hs" - Test Cases for HW 4 -> Prog4.hs
+"Prog4Test.hs" - Test Cases for HW 4 -> Prog4.hs
 Last Edited: 17 OCT 2019
 West Chester University
 CSC 345 - Programming Language Concepts / Paradigms - Fall 2019
@@ -149,7 +149,7 @@ unitTests = testGroup "Unit tests"
             testCase "day_361" $ assertEqual [] 12 (monthLookup 361),
             testCase "day_336" $ assertEqual [] 12 (monthLookup 336),
             testCase "day_365" $ assertEqual [] 12 (monthLookup 365)],
-        
+
         -- 7: monthRange :: Int -> Int -> [Int]
         testCase "test_monthRange1" $ assertEqual [] [2, 3] (monthRange 46 90),
         testCase "test_monthRange2" $ assertEqual [] [4, 5, 6, 7, 8] (monthRange 112 238),
@@ -265,84 +265,84 @@ unitTests = testGroup "Unit tests"
             testCase "day_32" $ assertEqual [] False (validDate (12, 32, 2019))],
 
         -- 9: validLeapDate :: (Int,Int,Int) -> Bool
-        testGroup "test_validDateJanuary" [
+        testGroup "test_validLeapDateJanuary" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (1, 1, 2020)),
             testCase "Day 23" $ assertEqual [] True (validLeapDate (1, 23, 2020)),
             testCase "Day 6" $ assertEqual [] True (validLeapDate (1, 6, 2020)),
             testCase "Day 31" $ assertEqual [] True (validLeapDate (1, 31, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (1, 0, 2020)),
             testCase "Day 32" $ assertEqual [] False (validLeapDate (1, 32, 2020))],
-        testGroup "test_validDateFebruary" [
+        testGroup "test_validLeapDateFebruary" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (2, 1, 2020)),
             testCase "Day 5" $ assertEqual [] True (validLeapDate (2, 5, 2020)),
             testCase "Day 8" $ assertEqual [] True (validLeapDate (2, 8, 2020)),
             testCase "Day 29" $ assertEqual [] True (validLeapDate (2, 29, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (2, 0, 2020)),
             testCase "Day 30" $ assertEqual [] False (validLeapDate (2, 30, 2020))],
-        testGroup "test_validDateMarch" [
+        testGroup "test_validLeapDateMarch" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (3, 1, 2020)),
             testCase "Day 25" $ assertEqual [] True (validLeapDate (3, 25, 2020)),
             testCase "Day 4" $ assertEqual [] True (validLeapDate (3, 4, 2020)),
             testCase "Day 31" $ assertEqual [] True (validLeapDate (3, 31, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (3, 0, 2020)),
             testCase "Day 32" $ assertEqual [] False (validLeapDate (3, 32, 2020))],
-        testGroup "test_validDateApril" [
+        testGroup "test_validLeapDateApril" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (4, 1, 2020)),
             testCase "Day 5" $ assertEqual [] True (validLeapDate (4, 5, 2020)),
             testCase "Day 21" $ assertEqual [] True (validLeapDate (4, 21, 2020)),
             testCase "Day 30" $ assertEqual [] True (validLeapDate (4, 30, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (4, 0, 2020)),
             testCase "Day 31" $ assertEqual [] False (validLeapDate (4, 31, 2020))],
-        testGroup "test_validDateMay" [
+        testGroup "test_validLeapDateMay" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (5, 1, 2020)),
             testCase "Day 28" $ assertEqual [] True (validLeapDate (5, 28, 2020)),
             testCase "Day 27" $ assertEqual [] True (validLeapDate (5, 27, 2020)),
             testCase "Day 31" $ assertEqual [] True (validLeapDate (5, 31, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (5, 0, 2020)),
             testCase "Day 32" $ assertEqual [] False (validLeapDate (5, 32, 2020))],
-        testGroup "test_validDateJune" [
+        testGroup "test_validLeapDateJune" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (6, 1, 2020)),
             testCase "Day 22" $ assertEqual [] True (validLeapDate (6, 22, 2020)),
             testCase "Day 28" $ assertEqual [] True (validLeapDate (6, 28, 2020)),
             testCase "Day 30" $ assertEqual [] True (validLeapDate (6, 30, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (6, 0, 2020)),
             testCase "Day 31" $ assertEqual [] False (validLeapDate (6, 31, 2020))],
-        testGroup "test_validDateJuly" [
+        testGroup "test_validLeapDateJuly" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (7, 1, 2020)),
             testCase "Day 11" $ assertEqual [] True (validLeapDate (7, 11, 2020)),
             testCase "Day 13" $ assertEqual [] True (validLeapDate (7, 13, 2020)),
             testCase "Day 31" $ assertEqual [] True (validLeapDate (7, 31, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (7, 0, 2020)),
             testCase "Day 32" $ assertEqual [] False (validLeapDate (7, 32, 2020))],
-        testGroup "test_validDateAugust" [
+        testGroup "test_validLeapDateAugust" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (8, 1, 2020)),
             testCase "Day 21" $ assertEqual [] True (validLeapDate (8, 21, 2020)),
             testCase "Day 11" $ assertEqual [] True (validLeapDate (8, 11, 2020)),
             testCase "Day 31" $ assertEqual [] True (validLeapDate (8, 31, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (8, 0, 2020)),
             testCase "Day 32" $ assertEqual [] False (validLeapDate (8, 32, 2020))],
-        testGroup "test_validDateSeptember" [
+        testGroup "test_validLeapDateSeptember" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (9, 1, 2020)),
             testCase "Day 24" $ assertEqual [] True (validLeapDate (9, 24, 2020)),
             testCase "Day 10" $ assertEqual [] True (validLeapDate (9, 10, 2020)),
             testCase "Day 30" $ assertEqual [] True (validLeapDate (9, 30, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (9, 0, 2020)),
             testCase "Day 31" $ assertEqual [] False (validLeapDate (9, 31, 2020))],
-        testGroup "test_validDateOctober" [
+        testGroup "test_validLeapDateOctober" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (10, 1, 2020)),
             testCase "Day 21" $ assertEqual [] True (validLeapDate (10, 21, 2020)),
             testCase "Day 13" $ assertEqual [] True (validLeapDate (10, 13, 2020)),
             testCase "Day 31" $ assertEqual [] True (validLeapDate (10, 31, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (10, 0, 2020)),
             testCase "Day 32" $ assertEqual [] False (validLeapDate (10, 32, 2020))],
-        testGroup "test_validDateNovember" [
+        testGroup "test_validLeapDateNovember" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (11, 1, 2020)),
             testCase "Day 18" $ assertEqual [] True (validLeapDate (11, 18, 2020)),
             testCase "Day 14" $ assertEqual [] True (validLeapDate (11, 14, 2020)),
             testCase "Day 30" $ assertEqual [] True (validLeapDate (11, 30, 2020)),
             testCase "Day 0" $ assertEqual [] False (validLeapDate (11, 0, 2020)),
             testCase "Day 31" $ assertEqual [] False (validLeapDate (11, 31, 2020))],
-        testGroup "test_validDateDecember" [
+        testGroup "test_validLeapDateDecember" [
             testCase "Day 1" $ assertEqual [] True (validLeapDate (12, 1, 2020)),
             testCase "Day 26" $ assertEqual [] True (validLeapDate (12, 26, 2020)),
             testCase "Day 4" $ assertEqual [] True (validLeapDate (12, 4, 2020)),
