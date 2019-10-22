@@ -16,3 +16,31 @@ Dependencies: cabal update
               cabal install tasty
               cabal install tasty-hunit
 -}
+
+import Prog5
+import Test.Tasty
+import Test.Tasty.HUnit
+import System.Environment
+
+main = do
+    setEnv "TASTY_TIMEOUT" "2s"
+    defaultMain tests
+
+tests :: TestTree
+tests = testGroup "Tests" [unitTests]
+
+unitTests = testGroup "Unit tests"
+    [
+    -- 1. reverse' :: [a] -> [a]
+    -- 2. isPalindrome :: String -> Bool
+    -- 3. safeFindAfter :: String -> [String] -> Maybe [String]
+    -- 4. member :: Char -> Set -> Bool
+    -- 5. size :: Set -> Int
+    -- 6. add :: Char -> Set -> Set
+    -- 7. equal :: Set -> Set -> Bool
+    -- 8. saferemove :: Char -> Set -> Maybe Set
+    -- 9. union :: Set -> Set -> Set
+    -- 10. intersection :: Set -> Set -> Set
+
+
+    ]
