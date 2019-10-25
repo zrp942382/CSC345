@@ -22,7 +22,7 @@ import Test.Tasty.HUnit
 import System.Environment
 
 
--- Do not Chnage -----
+-- Do not Change -----
 ins''' :: Char -> String -> String
 ins''' x [] = [x]
 ins''' x (y:ys)
@@ -31,15 +31,12 @@ ins''' x (y:ys)
 
 iSort''' :: String -> String
 iSort''' [] = []
-iSort''' (x : xs) = ins x (iSort''' xs)
+iSort''' (x : xs) = ins''' x (iSort''' xs)
 
 instance Eq Set where
     Set a == Set b = iSort''' a == iSort''' b
     EmptySet == EmptySet = True
     _ == _ = False
-
-cock :: Set -> Set -> Bool
-cock a b = a == b
 -----------------------------------------
 
 
@@ -67,7 +64,8 @@ unitTests = testGroup "Unit tests"
             testCase "test_3" $ assertEqual [] True (isPalindrome "anutforajaroftuna"),
             testCase "test_4" $ assertEqual [] False (isPalindrome "haskell"),
             testCase "test_5" $ assertEqual [] True (isPalindrome ""),
-            testCase "test_6" $ assertEqual [] True (isPalindrome "A")],
+            testCase "test_6" $ assertEqual [] True (isPalindrome "A"),
+            testCase "test_7" $ assertEqual [] True (isPalindrome "bb")],
 
 
         -- 3: safeFindAfter :: String -> [String] -> Maybe [String]
@@ -75,7 +73,8 @@ unitTests = testGroup "Unit tests"
             testCase "test_1" $ assertEqual [] (Just ["cut","me"]) (safeFindAfter "you" ["why","would","you","cut","me"]),
             testCase "test_2" $ assertEqual [] (Just []) (safeFindAfter "1" ["1"]),
             testCase "test_3" $ assertEqual [] Nothing (safeFindAfter "what?" []),
-            testCase "test_4" $ assertEqual [] (Just ["In","a","trap?"]) (safeFindAfter "clam?" ["Is","evil","in","a","clam?","In","a","trap?"])],
+            testCase "test_4" $ assertEqual [] (Just ["In","a","trap?"]) (safeFindAfter "clam?" ["Is","evil","in","a","clam?","In","a","trap?"]),
+            testCase "test_5" $ assertEqual [] Nothing (safeFindAfter "a" ["b", "c"])],
 
 
         -- 4: member :: Char -> Set -> Bool
@@ -89,10 +88,10 @@ unitTests = testGroup "Unit tests"
 
         -- 5: size :: Set -> Int
         testGroup "test_size" [
-            testCase "Test_1" $ assertEqual [] 0 (size EmptySet),
-            testCase "Test_2" $ assertEqual [] 22 (size (Set "whyareyoukeepingcount?")),
-            testCase "Test_3" $ assertEqual [] 1 (size (Set ['1'])),
-            testCase "Test_4" $ assertEqual [] 7 (size (Set "haskell"))],
+            testCase "test_1" $ assertEqual [] 0 (size EmptySet),
+            testCase "test_2" $ assertEqual [] 22 (size (Set "whyareyoukeepingcount?")),
+            testCase "test_3" $ assertEqual [] 1 (size (Set ['1'])),
+            testCase "test_4" $ assertEqual [] 7 (size (Set "haskell"))],
 
 
         --6: add :: Char -> Set -> Set
@@ -114,29 +113,28 @@ unitTests = testGroup "Unit tests"
 
         -- 8: saferemove :: Char -> Set -> Maybe Set
         testGroup "test_saferemove" [
-            testCase "First_Elem" $ assertEqual [] (Just (Set "bd")) (saferemove 'a' (Set "abd")),
-            testCase "Last_Elem" $ assertEqual [] (Just (Set "1a34")) (saferemove 'd' (Set "134ad")),
-            testCase "Sinlge_Elem" $ assertEqual []  (Just EmptySet) (saferemove '3' (Set "3")),
-            testCase "Remove_Empty" $ assertEqual [] (Nothing) (saferemove '?' EmptySet),
-            testCase "Not_Found" $ assertEqual [] (Nothing) (saferemove 'a' (Set "12gf")),
-            testCase "Middle_Elem" $ assertEqual [] (Just (Set ",1a5b")) (saferemove ';' (Set "ab15;,"))],
+            testCase "first_elem" $ assertEqual [] (Just (Set "bd")) (saferemove 'a' (Set "abd")),
+            testCase "last_elem" $ assertEqual [] (Just (Set "1a34")) (saferemove 'd' (Set "134ad")),
+            testCase "sinlge_elem" $ assertEqual []  (Just EmptySet) (saferemove '3' (Set "3")),
+            testCase "remove_empty" $ assertEqual [] Nothing (saferemove '?' EmptySet),
+            testCase "not_found" $ assertEqual [] Nothing (saferemove 'a' (Set "12gf")),
+            testCase "middle_elem" $ assertEqual [] (Just (Set ",1a5b")) (saferemove ';' (Set "ab15;,"))],
 
         -- 9: union :: Set -> Set -> Set
         testGroup "test_union" [
-            testCase "Test_1" $ assertEqual [] (Set "Something") (union EmptySet (Set "Something")),
-            testCase "Test_2" $ assertEqual [] (Set "Something")  (union (Set "Something") EmptySet),
-            testCase "Test_3" $ assertEqual [] EmptySet (union EmptySet EmptySet),
-            testCase "Test_4" $ assertEqual [] (Set "123456789") (union (Set "123456") (Set "456789")),
-            testCase "Test_5" $ assertEqual [] (Set "12") (union (Set "1") (Set "2")),
-            testCase "Test_6" $ assertEqual [] (Set "1") (union (Set "1") (Set "1"))],
+            testCase "test_1" $ assertEqual [] (Set "Something") (union EmptySet (Set "Something")),
+            testCase "test_2" $ assertEqual [] (Set "Something")  (union (Set "Something") EmptySet),
+            testCase "test_3" $ assertEqual [] EmptySet (union EmptySet EmptySet),
+            testCase "test_4" $ assertEqual [] (Set "123456789") (union (Set "123456") (Set "456789")),
+            testCase "test_5" $ assertEqual [] (Set "12") (union (Set "1") (Set "2")),
+            testCase "test_6" $ assertEqual [] (Set "1") (union (Set "1") (Set "1"))],
 
         -- 10: intersection :: Set -> Set -> Set
-
         testGroup "test_intersection" [
-            testCase "Test_1" $ assertEqual []  EmptySet (intersection EmptySet (Set "Something")),
-            testCase "Test_2" $ assertEqual []  EmptySet (intersection (Set "Something") EmptySet),
-            testCase "Test_3" $ assertEqual []  (Set "Something") (intersection (Set "Something") (Set "Something")),
-            testCase "Test_4" $ assertEqual []  (Set "456") (intersection (Set "123456") (Set "456789")),
-            testCase "Test_5" $ assertEqual []  EmptySet (intersection (Set "12345") (Set "6789")),
-            testCase "Test_6" $ assertEqual []  (Set "1") (intersection (Set "1") (Set "1"))]
+            testCase "test_1" $ assertEqual []  EmptySet (intersection EmptySet (Set "Something")),
+            testCase "test_2" $ assertEqual []  EmptySet (intersection (Set "Something") EmptySet),
+            testCase "test_3" $ assertEqual []  (Set "Something") (intersection (Set "Something") (Set "Something")),
+            testCase "test_4" $ assertEqual []  (Set "456") (intersection (Set "123456") (Set "456789")),
+            testCase "test_5" $ assertEqual []  EmptySet (intersection (Set "12345") (Set "6789")),
+            testCase "test_6" $ assertEqual []  (Set "1") (intersection (Set "1") (Set "1"))]
     ]
