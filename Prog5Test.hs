@@ -132,9 +132,10 @@ unitTests = testGroup "Unit tests"
         -- 10: intersection :: Set -> Set -> Set
         testGroup "test_intersection" [
             testCase "test_1" $ assertEqual []  EmptySet (intersection EmptySet (Set "Something")),
-            testCase "test_2" $ assertEqual []  EmptySet (intersection (Set "Something") EmptySet),
-            testCase "test_3" $ assertEqual []  (Set "Something") (intersection (Set "Something") (Set "Something")),
-            testCase "test_4" $ assertEqual []  (Set "456") (intersection (Set "123456") (Set "456789")),
-            testCase "test_5" $ assertEqual []  EmptySet (intersection (Set "12345") (Set "6789")),
-            testCase "test_6" $ assertEqual []  (Set "1") (intersection (Set "1") (Set "1"))]
+            testCase "test_2" $ assertEqual [] EmptySet (intersection EmptySet EmptySet),
+            testCase "test_3" $ assertEqual []  EmptySet (intersection (Set "Something") EmptySet),
+            testCase "test_4" $ assertEqual []  (Set "Something") (intersection (Set "Something") (Set "Something")),
+            testCase "test_5" $ assertEqual []  (Set "456") (intersection (Set "123456") (Set "456789")),
+            testCase "test_6" $ assertEqual []  EmptySet (intersection (Set "12345") (Set "6789")),
+            testCase "test_7" $ assertEqual []  (Set "1") (intersection (Set "1") (Set "1"))]
     ]
