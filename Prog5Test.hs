@@ -37,6 +37,7 @@ instance Eq Set where
     Set a == Set b = iSort''' a == iSort''' b
     EmptySet == EmptySet = True
     _ == _ = False
+    Set a /= Set b = not (Set a == Set b)
 -----------------------------------------
 
 
