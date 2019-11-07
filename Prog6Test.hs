@@ -45,18 +45,25 @@ unitTests = testGroup "Unit tests"
             testCase "test_3" $ assertEqual [] [1,2,3,4,5,6,7] (postorder (Node1 7 (Node1 3 (Leaf1 1) (Leaf1 2)) (Node1 6 (Leaf1 4) (Leaf1 5)))),
              testCase "test_4" $ assertEqual [] [1,2,3,4,5,6,7,8,9] (postorder (Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7))))],
          
-         -- 3: 
+         -- 3: sumPositives :: Tree1 -> Int 
         testGroup "test_sumPositives" [
             testCase "test_1" $ assertEqual [] 1 (sumPositives (Leaf1 1)),
             testCase "test_2" $ assertEqual [] 6 (sumPositives (Node1 3 (Leaf1 1) (Leaf1 2))),
             testCase "test_3" $ assertEqual [] 28 (sumPositives (Node1 7 (Node1 3 (Leaf1 1) (Leaf1 2)) (Node1 6 (Leaf1 4) (Leaf1 5)))),
-            testCase "test_4" $ assertEqual [] 45 (sumPositives (Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7))))], 
+            testCase "test_4" $ assertEqual [] 29 (sumPositives (Node1 9 (Node1 (-5) (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 (-1))) (Node1 8 (Leaf1 6) (Leaf1 (-2)))))], 
  
-         -- 3: 
+         -- 4: 
         testGroup "test_countLeaves" [
             testCase "test_1" $ assertEqual [] 1 (countLeaves (Leaf1 1)),
             testCase "test_2" $ assertEqual [] 2 (countLeaves (Node1 3 (Leaf1 1) (Leaf1 2))),
             testCase "test_3" $ assertEqual [] 4 (countLeaves (Node1 7 (Node1 3 (Leaf1 1) (Leaf1 2)) (Node1 6 (Leaf1 4) (Leaf1 5)))),
-            testCase "test_4" $ assertEqual [] 5 (countLeaves (Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7))))] 
+            testCase "test_4" $ assertEqual [] 5 (countLeaves (Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7))))], 
+
+        -- 5: countLEaves
+        testGroup "test_depth" [
+            testCase "test_1" $ assertEqual [] 0 (depth (Leaf1 1)),
+            testCase "test_2" $ assertEqual [] 1 (depth (Node1 3 (Leaf1 1) (Leaf1 2))),
+            testCase "test_3" $ assertEqual [] 2 (depth (Node1 7 (Node1 3 (Leaf1 1) (Leaf1 2)) (Node1 6 (Leaf1 4) (Leaf1 5)))),
+            testCase "test_4" $ assertEqual [] 4 (depth (Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7))))] 
 
    ]
