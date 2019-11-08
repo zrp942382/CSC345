@@ -3,6 +3,7 @@ West Chester University
 CSC 345 - Programming Language Concepts / Paradigms - Fall 2019
 Original format provided by: Richard Burns, distributed with permission.
 Authors: Mahmoud Gudarzi, Anton Adamovich, Brandon Barker, and Akash Kumar
+Contributors: Cole Gottdank
 AUTHORS GIVE NO GUARANTEES THAT TEST CASES ARE CORRECT OR COMPLETE.
 INSTRUCTOR HAS FINAL WORD CONCERNING THE FUNCTIONALITY OF YOUR CODE.
 YOU ARE ENCOURAGED TO TEST YOUR CODE INDEPENDENTLY.
@@ -16,11 +17,6 @@ import Prog6
 import Test.Tasty
 import Test.Tasty.HUnit
 import System.Environment
-
-
--- Do not Change -----
------------------------------------------
-
 
 main = do
     setEnv "TASTY_TIMEOUT" "2s"
@@ -63,7 +59,7 @@ unitTests = testGroup "Unit tests"
         testGroup "test_depth" [
             testCase "test_1" $ assertEqual [] 0 (depth (Leaf1 1)),
             testCase "test_2" $ assertEqual [] 1 (depth (Node1 3 (Leaf1 1) (Leaf1 2))),
-            testCase "test_3" $ assertEqual [] 2 (depth (Node1 7 (Node1 3 (Leaf1 1) (Leaf1 2)) (Node1 6 (Leaf1 4) (Leaf1 5)))),
-            testCase "test_4" $ assertEqual [] 4 (depth (Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7))))] 
+            testCase "test_3" $ assertEqual [] 2 (depth ( Node1 7 (Node1 3 (Leaf1 1) (Leaf1 2)) (Node1 6 (Leaf1 4) (Leaf1 5)) )),
+            testCase "test_4" $ assertEqual [] 3 (depth ( Node1 9 (Node1 5 (Node1 3 (Leaf1 1) (Leaf1 2)) (Leaf1 4)) (Node1 8 (Leaf1 6) (Leaf1 7)) ))] 
 
    ]
