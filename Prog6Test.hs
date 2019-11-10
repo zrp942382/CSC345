@@ -20,11 +20,11 @@ import System.Environment
 
 
 -- A fn that makes a right skewed tree.
-makeRightSkewedTree1 :: [a] -> Tree1
-makeRightSkewedTree1 [] = error "empty tree"
-makeRightSkewedTree1 (x:[]) = Leaf1 x
-makeRightSkewedTree1 (x:y:[]) = Node1 x (Leaf1 y) (Leaf1 42)
-makeRightSkewedTree1 (x:y:xs) = Node1 x (Leaf1 y) (makeRightSkewedTree1 xs)
+-- makeRightSkewedTree1 :: [a] -> Tree1
+-- makeRightSkewedTree1 [] = error "empty tree"
+-- makeRightSkewedTree1 (x:[]) = Leaf1 x
+-- makeRightSkewedTree1 (x:y:[]) = Node1 x (Leaf1 y) (Leaf1 42)
+-- makeRightSkewedTree1 (x:y:xs) = Node1 x (Leaf1 y) (makeRightSkewedTree1 xs)
 
 main = do
     setEnv "TASTY_TIMEOUT" "2s"
@@ -33,8 +33,7 @@ main = do
 tests :: TestTree
 tests = testGroup "Tests" [unitTests]
 
-unitTests = testGroup "Unit tests"
-    [
+unitTests = testGroup "Unit tests" [
         -- 1: preorder :: Tree1 -> [Int]
         testGroup "test_preorder" [
             testCase "test_1" $ assertEqual [] [1]
@@ -60,7 +59,8 @@ unitTests = testGroup "Unit tests"
                                         (Leaf1 6))
                                  (Node1 7
                                         (Leaf1 8)
-                                        (Leaf1 9))))],
+                                        (Leaf1 9))))
+        ],
 
         -- 2: postorder :: Tree1 -> [Int]
         testGroup "test_postorder" [
@@ -87,9 +87,10 @@ unitTests = testGroup "Unit tests"
                                          (Leaf1 4))
                                   (Node1 8
                                          (Leaf1 6)
-                                         (Leaf1 7))))],
+                                         (Leaf1 7))))
+        ],
 
-         -- 3: sumPositives :: Tree1 -> Int
+        -- 3: sumPositives :: Tree1 -> Int
         testGroup "test_sumPositives" [
             testCase "test_1" $ assertEqual [] 1
                 (sumPositives (Leaf1 1)),
@@ -114,9 +115,10 @@ unitTests = testGroup "Unit tests"
                                             (Leaf1 (-1)))
                                      (Node1 8
                                             (Leaf1 6)
-                                            (Leaf1 (-2)))))],
+                                            (Leaf1 (-2)))))
+        ],
 
-         -- 4: countLeaves :: Tree1 -> Int
+        -- 4: countLeaves :: Tree1 -> Int
         testGroup "test_countLeaves" [
             testCase "test_1" $ assertEqual [] 1
                 (countLeaves (Leaf1 1)),
@@ -141,7 +143,8 @@ unitTests = testGroup "Unit tests"
                                            (Leaf1 4))
                                     (Node1 8
                                            (Leaf1 6)
-                                           (Leaf1 7))))],
+                                           (Leaf1 7))))
+        ],
 
         -- 5: depth :: Tree1 -> Int
         testGroup "test_depth" [
@@ -168,5 +171,57 @@ unitTests = testGroup "Unit tests"
                                      (Leaf1 4))
                               (Node1 8
                                      (Leaf1 6)
-                                     (Leaf1 7))))]
-   ]
+                                     (Leaf1 7))))
+        ],
+
+        -- 6: occurs :: Eq a => a -> Tree2 a -> Bool
+        testGroup "test_occurs" [
+            testCase "test_1" $ assertEqual [] False
+                (occurs 9 (Leaf2 10)),
+            testCase "test_2" $ assertEqual [] True
+                (occurs 'a' (Node2 [(Leaf2 'b'),
+                                    (Node2 [(Leaf2 'z'),
+                                            (Leaf2 'a')]),
+                                    (Node2 [(Leaf2 'c'),
+                                            (Node2 [(Leaf2 'd'),
+                                                    (Leaf2 'f')])])])),
+            testCase "test_3" $ assertEqual [] False
+                (occurs 'e' (Node2 [(Leaf2 'b'),
+                                    (Node2 [(Leaf2 'z'),
+                                            (Leaf2 'a')]),
+                                    (Node2 [(Leaf2 'c'),
+                                            (Node2 [(Leaf2 'd'),
+                                                    (Leaf2 'f')])])])),
+            testCase "test_4" $ assertEqual [] False
+                (occurs "cool" (Node2 [(Leaf2 "my"),
+                                       (Node2 [(Leaf2 "favorite"),
+                                               Node2 [(Leaf2 "stuff")],
+                                               (Leaf2 "things"),
+                                               (Leaf2 "ever")]),
+                                       (Node2 [(Leaf2 "are"),
+                                               (Node2 [(Leaf2 "probably"),
+                                                       (Leaf2 "cookies")])])])),
+            testCase "test_5" $ assertEqual [] True
+                (occurs 10 (Node2 [(Node2 [(Node2 [(Leaf2 10)])])])),
+            testCase "test_6" $ assertEqual [] True
+                (occurs 500000 (Node2 [(Node2 [(Leaf2 100000),
+                                               (Leaf2 200001),
+                                               (Leaf2 200002),
+                                               (Leaf2 200003),
+                                               (Leaf2 200004),
+                                               (Leaf2 200000),
+                                               (Leaf2 500000)])])),
+            testCase "test_7" $ assertEqual [] False
+                (occurs True (Node2 [(Leaf2 False),
+                                     (Leaf2 False),
+                                     (Leaf2 False)]))
+        ] --, -- make sure to uncomment comma after adding more test groups.
+
+        -- 10: depthK
+        --testGroup "test_depthK" [
+        --    testCase "test_1" $ assertEqual [] 0 (depthK ),
+        --    testCase "test_2" $ assertEqual [] 1 (depthK ),
+        --    testCase "test_3" $ assertEqual [] 2 (depthK ),
+        --    testCase "test_4" $ assertEqual [] 3 (depthK )
+        --]
+    ]
