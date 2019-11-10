@@ -257,8 +257,49 @@ unitTests = testGroup "Unit tests" [
                 (countInteriorNodes (Node2 [(Leaf2 False),
                                      (Leaf2 False),
                                      (Leaf2 False)]))
-        ] 
+        ], 
 
+        testGroup "test_sumTree" [
+            testCase "test_1" $ assertEqual [] 10
+                (sumTree (Leaf2 10)),
+            testCase "test_2" $ assertEqual [] 21
+                (sumTree (Node2 [(Leaf2 1),
+                                    (Node2 [(Leaf2 2),
+                                            (Leaf2 3)]),
+                                    (Node2 [(Leaf2 4),
+                                            (Node2 [(Leaf2 5),
+                                                    (Leaf2 6)])])])),
+            testCase "test_3" $ assertEqual [] 21
+                (sumTree (Node2 [(Leaf2 1),
+                                    (Node2 [(Leaf2 2),
+                                            (Leaf2 3)]),
+                                    (Node2 [(Leaf2 4),
+                                            (Node2 [(Leaf2 5),
+                                                    (Leaf2 6)])])])),
+            testCase "test_4" $ assertEqual [] 36
+                (sumTree (Node2 [(Leaf2 1),
+                                       (Node2 [(Leaf2 2),
+                                               Node2 [(Leaf2 3)],
+                                               (Leaf2 4),
+                                               (Leaf2 5)]),
+                                       (Node2 [(Leaf2 6),
+                                               (Node2 [(Leaf2 7),
+                                                       (Leaf2 8)])])])),
+            testCase "test_5" $ assertEqual [] 10
+                (sumTree (Node2 [(Node2 [(Node2 [(Leaf2 10)])])])),
+            testCase "test_6" $ assertEqual [] 28
+                (sumTree (Node2 [(Node2 [(Leaf2 1),
+                                               (Leaf2 2),
+                                               (Leaf2 3),
+                                               (Leaf2 4),
+                                               (Leaf2 5),
+                                               (Leaf2 6),
+                                               (Leaf2 7)])])),
+            testCase "test_7" $ assertEqual [] 6
+                (sumTree (Node2 [(Leaf2 1),
+                                     (Leaf2 2),
+                                     (Leaf2 3)]))
+        ] 
         -- 10: depthK
         --testGroup "test_depthK" [
         --    testCase "test_1" $ assertEqual [] 0 (depthK ),
