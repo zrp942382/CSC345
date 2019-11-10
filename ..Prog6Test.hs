@@ -215,49 +215,7 @@ unitTests = testGroup "Unit tests" [
                 (occurs True (Node2 [(Leaf2 False),
                                      (Leaf2 False),
                                      (Leaf2 False)]))
-        ],
-
-        testGroup "test_countInteriorNodes" [
-            testCase "test_1" $ assertEqual [] 1
-                (countInteriorNodes (Leaf2 10)),
-            testCase "test_2" $ assertEqual [] 6
-                (countInteriorNodes (Node2 [(Leaf2 'b'),
-                                    (Node2 [(Leaf2 'z'),
-                                            (Leaf2 'a')]),
-                                    (Node2 [(Leaf2 'c'),
-                                            (Node2 [(Leaf2 'd'),
-                                                    (Leaf2 'f')])])])),
-            testCase "test_3" $ assertEqual [] 6
-                (countInteriorNodes (Node2 [(Leaf2 'b'),
-                                    (Node2 [(Leaf2 'z'),
-                                            (Leaf2 'a')]),
-                                    (Node2 [(Leaf2 'c'),
-                                            (Node2 [(Leaf2 'd'),
-                                                    (Leaf2 'f')])])])),
-            testCase "test_4" $ assertEqual [] 8
-                (countInteriorNodes (Node2 [(Leaf2 "my"),
-                                       (Node2 [(Leaf2 "favorite"),
-                                               Node2 [(Leaf2 "stuff")],
-                                               (Leaf2 "things"),
-                                               (Leaf2 "ever")]),
-                                       (Node2 [(Leaf2 "are"),
-                                               (Node2 [(Leaf2 "probably"),
-                                                       (Leaf2 "cookies")])])])),
-            testCase "test_5" $ assertEqual [] 1
-                (countInteriorNodes (Node2 [(Node2 [(Node2 [(Leaf2 10)])])])),
-            testCase "test_6" $ assertEqual [] 7
-                (countInteriorNodes (Node2 [(Node2 [(Leaf2 100000),
-                                               (Leaf2 200001),
-                                               (Leaf2 200002),
-                                               (Leaf2 200003),
-                                               (Leaf2 200004),
-                                               (Leaf2 200000),
-                                               (Leaf2 500000)])])),
-            testCase "test_7" $ assertEqual [] 3
-                (countInteriorNodes (Node2 [(Leaf2 False),
-                                     (Leaf2 False),
-                                     (Leaf2 False)]))
-        ] 
+        ] --, -- make sure to uncomment comma after adding more test groups.
 
         -- 10: depthK
         --testGroup "test_depthK" [
@@ -266,5 +224,4 @@ unitTests = testGroup "Unit tests" [
         --    testCase "test_3" $ assertEqual [] 2 (depthK ),
         --    testCase "test_4" $ assertEqual [] 3 (depthK )
         --]
-   --} 
-   ]
+    ]
