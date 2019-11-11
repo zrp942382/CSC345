@@ -432,6 +432,7 @@ unitTests = testGroup "Unit tests" [
                 ("input tree: \n" <> drawTree2 (Leaf2 10))
                 10
                 (sumTree (Leaf2 10)),
+
             testCase "test_2" $ 
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Node2 [Leaf2 2, Leaf2 3], Node2 [Leaf2 4, Node2 [Leaf2 5, Leaf2 6]]]))
@@ -442,6 +443,7 @@ unitTests = testGroup "Unit tests" [
                                     Node2 [Leaf2 4,
                                             Node2 [Leaf2 5,
                                                     Leaf2 6]]])),
+
             testCase "test_3" $
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Node2 [Leaf2 2, Leaf2 3], Node2 [Leaf2 4, Node2 [Leaf2 5, Leaf2 6]]]))
@@ -452,6 +454,7 @@ unitTests = testGroup "Unit tests" [
                                     Node2 [Leaf2 4,
                                             Node2 [Leaf2 5,
                                                     Leaf2 6]]])),
+
             testCase "test_4" $
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Node2 [Leaf2 2, Node2 [Leaf2 3], Leaf2 4, Leaf2 5], Node2 [Leaf2 6, Node2 [Leaf2 7, Leaf2 8]]]))
@@ -464,11 +467,13 @@ unitTests = testGroup "Unit tests" [
                                        Node2 [Leaf2 6,
                                                Node2 [Leaf2 7,
                                                        Leaf2 8]]])),
+
             testCase "test_5" $ 
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
                 10
                 (sumTree (Node2 [Node2 [Node2 [Leaf2 10]]])),
+
             testCase "test_6" $
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Node2 [Leaf2 1, Leaf2 2, Leaf2 3, Leaf2 4, Leaf2 5, Leaf2 6, Leaf2 7]]))
@@ -480,6 +485,7 @@ unitTests = testGroup "Unit tests" [
                                                Leaf2 5,
                                                Leaf2 6,
                                                Leaf2 7]])),
+
             testCase "test_7" $ 
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Leaf2 2, Leaf2 3]))
