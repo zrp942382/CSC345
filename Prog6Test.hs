@@ -72,7 +72,7 @@ unitTests = testGroup "Unit tests" [
         testGroup "test_preorder" [
             testCase "test_1" $
               assertEqual
-                ("input tree: \n" <> drawTree1 (Leaf1 1))
+                ("input tree: \n" ++ drawTree1 (Leaf1 1))
                 [1]
                 (preorder (Leaf1 1)),
 
@@ -127,7 +127,7 @@ unitTests = testGroup "Unit tests" [
         testGroup "test_postorder" [
             testCase "test_1" $
               assertEqual
-                ("input tree: \n" <> drawTree1 (Leaf1 1))
+                ("input tree: \n" ++ drawTree1 (Leaf1 1))
                 [1]
                 (postorder (Leaf1 1)),
 
@@ -184,12 +184,12 @@ unitTests = testGroup "Unit tests" [
         testGroup "test_sumPositives" [
             testCase "test_1" $
               assertEqual
-                ("input tree: \n" <> drawTree1 (Leaf1 1))
+                ("input tree: \n" ++ drawTree1 (Leaf1 1))
                 1
                 (sumPositives (Leaf1 1)),
             testCase "test_2" $
               assertEqual
-                ("input tree: \n" <> drawTree1 (Leaf1 (-3)))
+                ("input tree: \n" ++ drawTree1 (Leaf1 (-3)))
                 0
                 (sumPositives (Leaf1 (-3))),
             testCase "test_3" $
@@ -263,7 +263,7 @@ unitTests = testGroup "Unit tests" [
         testGroup "test_countLeaves" [
             testCase "test_1" $
               assertEqual
-                ("input tree: \n" <> drawTree1 (Leaf1 1))
+                ("input tree: \n" ++ drawTree1 (Leaf1 1))
                 1
                 (countLeaves (Leaf1 1)),
 
@@ -320,7 +320,7 @@ unitTests = testGroup "Unit tests" [
         testGroup "test_depth" [
             testCase "test_1" $
               assertEqual
-                ("input tree: \n" <> drawTree1 (Leaf1 1))
+                ("input tree: \n" ++ drawTree1 (Leaf1 1))
                 0
                 (depth (Leaf1 1)),
             testCase "test_2" $
@@ -433,7 +433,7 @@ unitTests = testGroup "Unit tests" [
 
             testCase "test_5" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
+                ("input tree: \n" ++ drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
                 True
                 (occurs 10 (Node2 [Node2 [Node2 [Leaf2 10]]])),
 
@@ -529,7 +529,7 @@ unitTests = testGroup "Unit tests" [
 
             testCase "test_5" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
+                ("input tree: \n" ++ drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
                 1
                 (countInteriorNodes (Node2 [Node2 [Node2 [Leaf2 10]]])),
 
@@ -568,7 +568,7 @@ unitTests = testGroup "Unit tests" [
         testGroup "test_sumTree" [
             testCase "test_1" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Leaf2 10))
+                ("input tree: \n" ++ drawTree2 (Leaf2 10))
                 10
                 (sumTree (Leaf2 10)),
             testCase "test_2" $
@@ -622,9 +622,10 @@ unitTests = testGroup "Unit tests" [
                                                      Leaf2 8]]])),
             testCase "test_5" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
+                ("input tree: \n" ++ drawTree2 (Node2 [Node2 [Node2 [Leaf2 10]]]))
                 10
                 (sumTree (Node2 [Node2 [Node2 [Leaf2 10]]])),
+
             testCase "test_6" $
               assertEqual
                 ("input tree: \n" <> drawTree2 (Node2 [Node2 [Leaf2 1,
@@ -644,9 +645,13 @@ unitTests = testGroup "Unit tests" [
                                         Leaf2 7]])),
             testCase "test_7" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Leaf2 2, Leaf2 3]))
+                ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1,
+                                                       Leaf2 2,
+                                                       Leaf2 3]))
                 6
-                (sumTree (Node2 [Leaf2 1, Leaf2 2, Leaf2 3]))
+                (sumTree (Node2 [Leaf2 1,
+                                 Leaf2 2,
+                                 Leaf2 3]))
         ],
 
         -- 9: pre2 :: Tree2 a -> [a]
@@ -714,9 +719,13 @@ unitTests = testGroup "Unit tests" [
                                      Leaf2 7]])),
             testCase "test_6" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Leaf2 2, Leaf2 3]))
+                ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1,
+                                                       Leaf2 2,
+                                                       Leaf2 3]))
                 [1,2,3]
-                (pre2 (Node2 [Leaf2 1, Leaf2 2, Leaf2 3]))
+                (pre2 (Node2 [Leaf2 1,
+                              Leaf2 2,
+                              Leaf2 3]))
         ],
 
         -- depthK :: Int -> Tree2 a -> [a]
@@ -789,8 +798,12 @@ unitTests = testGroup "Unit tests" [
                                                Leaf2 7]]))),
             testCase "test_7" $
               assertEqual
-                ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1, Leaf2 2, Leaf2 3]))
+                ("input tree: \n" <> drawTree2 (Node2 [Leaf2 1,
+                                                       Leaf2 2,
+                                                       Leaf2 3]))
                 [1,2,3]
-                (sort (depthK 1 (Node2 [Leaf2 1, Leaf2 2, Leaf2 3])))
+                (sort (depthK 1 (Node2 [Leaf2 1,
+                                        Leaf2 2,
+                                        Leaf2 3])))
         ]
     ]
