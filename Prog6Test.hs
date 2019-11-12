@@ -390,7 +390,7 @@ unitTests = testGroup "Unit tests" [
                             Node2 [Leaf2 'c',
                                    Node2 [Leaf2 'd',
                                           Leaf2 'f']]])
-                    4
+                    3
                     countInteriorNodes,
 
             testCase "test_3" $
@@ -403,13 +403,13 @@ unitTests = testGroup "Unit tests" [
                             Node2 [Leaf2 "are",
                                    Node2 [Leaf2 "probably",
                                            Leaf2 "cookies"]]])
-                    5
+                    4
                     countInteriorNodes,
 
             testCase "test_4" $
                 assertTree
                     (Node2 [Node2 [Node2 [Leaf2 10]]])
-                    3
+                    2
                     countInteriorNodes,
 
             testCase "test_5" $
@@ -421,7 +421,7 @@ unitTests = testGroup "Unit tests" [
                                    Leaf2 200004,
                                    Leaf2 200000,
                                    Leaf2 500000]])
-                    2
+                    1
                     countInteriorNodes,
 
             testCase "test_6" $
@@ -429,7 +429,7 @@ unitTests = testGroup "Unit tests" [
                     (Node2 [Leaf2 False,
                             Leaf2 False,
                             Leaf2 False])
-                    1
+                    0
                     countInteriorNodes
         ],
 
