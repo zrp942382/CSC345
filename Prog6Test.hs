@@ -28,9 +28,9 @@ instance Show Tree3 where
       drawTree3 (Tree3 x ts0) = x : drawSubTrees ts0
       drawSubTrees [] = []
       drawSubTrees [t] =
-          "│" : shift "└ " "   " (drawTree3 t)
+          "\9474" : shift "\9492 " "   " (drawTree3 t)
       drawSubTrees (t:ts) =
-          "│" : shift "├ " "│  " (drawTree3 t) ++ drawSubTrees ts
+          "\9474" : shift "\9500 " "\9474  " (drawTree3 t) ++ drawSubTrees ts
 
       shift first other = zipWith (++) (first : repeat other)
 
@@ -39,7 +39,7 @@ instance Show x => Show (Tree2 x) where
     where
       tree2as3 :: Show a => Tree2 a -> String -> Tree3
       tree2as3 (Leaf2 x) _       = Tree3 (show x) []
-      tree2as3 (Node2 ns) spacer = Tree3 spacer [tree2as3 n "─┐" | n <- ns]
+      tree2as3 (Node2 ns) spacer = Tree3 spacer [tree2as3 n "\9472\9488" | n <- ns]
 
 instance Show Tree1 where
   show = show . tree1as3
