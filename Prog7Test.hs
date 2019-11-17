@@ -92,14 +92,25 @@ unitTests = testGroup "Unit tests"
         testCase "test5" $ assertEqual [] "ocolatechay" (piglatinize "chocolate"),
         testCase "test6" $ assertEqual [] "irthdaybay" (piglatinize "birthday"),
         testCase "test7" $ assertEqual [] "oyay" (piglatinize "o")
-    ]
+    ],
 
   --6 (#7 in PDF): balanced :: Tree a -> Bool
-  --testGroup "test_balanced" [],
+    testGroup "test_balanced"
+    [
+        testCase "test1" $ assertEqual []  True (balanced (Node (Node (Leaf 'a') (Leaf 'b')) (Leaf 'c'))),
+        testCase "test2" $ assertEqual []  False (balanced (Node (Node (Node (Leaf 5) (Leaf 5)) (Leaf (-1))) (Leaf 6))),
+        testCase "test3" $ assertEqual []  True (balanced (Node (Node (Node (Leaf 5) (Leaf 5)) (Leaf (-1))) (Node (Node (Leaf 5) (Leaf 5)) (Leaf (-1))))),
+        testCase "test4" $ assertEqual []  False (balanced (Node (Node (Leaf 5) (Leaf 5)) (Node (Leaf (-1)) (Node (Leaf 10) (Node (Leaf 10) (Leaf 9)))))),
+        testCase "test5" $ assertEqual []  True (balanced (Node (Node (Node (Leaf 5) (Leaf 5)) (Leaf (-1))) (Node (Node (Leaf 5) (Leaf 5)) (Node (Leaf (-1)) (Leaf 3))))),
+        testCase "test6" $ assertEqual []  False (balanced (Node (Node (Node (Leaf 5) (Node (Leaf (-1)) (Leaf 3))) (Leaf (-1))) (Node (Node (Leaf 5) (Leaf 5)) (Node (Leaf (-1)) (Leaf 3))))),
+        testCase "test7" $ assertEqual []  True (balanced (Leaf 1)),
+        testCase "test8" $ assertEqual []  True (balanced (Node (Leaf 'a') (Leaf 'b')))
+    ]
+
 
   -- 7 (#9 in PDF): bEval :: BExpr3 -> Bool
   --testGroup "test_equal" [],
 
   -- 8 (#10 in PDF): value3 :: Expr3 -> Maybe Int
   --testGroup "test_saferemove" []
- ]
+   ]
