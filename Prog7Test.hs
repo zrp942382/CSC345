@@ -105,12 +105,34 @@ unitTests = testGroup "Unit tests"
         testCase "test6" $ assertEqual []  False (balanced (Node (Node (Node (Leaf 5) (Node (Leaf (-1)) (Leaf 3))) (Leaf (-1))) (Node (Node (Leaf 5) (Leaf 5)) (Node (Leaf (-1)) (Leaf 3))))),
         testCase "test7" $ assertEqual []  True (balanced (Leaf 1)),
         testCase "test8" $ assertEqual []  True (balanced (Node (Leaf 'a') (Leaf 'b')))
-    ]
+    ],
 
 
   -- 7 (#9 in PDF): bEval :: BExpr3 -> Bool
-  --testGroup "test_equal" [],
+  testGroup "test_bEval"
+  [
+  testCase "test1" $ assertEqual []  True (bEval (Or (EqualTo (Val3 5) (Div3(Val3 15)(Val3 3))) (BoolLit True))),
+  testCase "test2" $ assertEqual []  True (bEval (EqualTo (Val3 (-3)) (Sub3 (Val3 4) (Val3 7)))),
+  testCase "test3" $ assertEqual []  True (bEval (LessThan (Val3 (-3)) (Sub3 (Val3 4) (Val3 6)))),
+  testCase "test4" $ assertEqual []  False (bEval (BoolLit False)),
+  testCase "test5" $ assertEqual []  True (bEval (BoolLit True)),
+  testCase "test6" $ assertEqual []  False (bEval (Or (LessThan (Div3(If(EqualTo(Val3 2)(Add3(Val3 2)(Val3 1)))(If(Or(BoolLit True)(BoolLit False))(Val3 25)(Val3 2))(Val3 325))(Val3 25))(Val3 12)) (BoolLit False)))
+
+  ],
 
   -- 8 (#10 in PDF): value3 :: Expr3 -> Maybe Int
-  --testGroup "test_saferemove" []
-   ]
+  testGroup "test_value3"
+  [
+  testCase "test1" $ assertEqual []  (Just 34) (value3 (Mult3 (Add3 (Add3 (Val3 5) (Val3 10)) (Sub3(Val3 5)(Val3 3))) (Div3 (Val3 10)(Mult3(Val3 1)(Val3 5))))),
+  testCase "test3" $ assertEqual []  (Just 3) (value3 (If (BoolLit True)(Add3 (Val3 1) (Val3 2))(Val3 4))),
+  testCase "test4" $ assertEqual []  (Just 4) (value3 (If (BoolLit False)(Add3 (Val3 1) (Val3 2))(Val3 4))),
+  testCase "test2" $ assertEqual []  Nothing (value3 (Mult3 (Add3 (Add3 (Val3 5) (Val3 10)) (Sub3(Val3 5)(Val3 3))) (Div3 (Val3 10)(Mult3(If (BoolLit False) (Val3 2) (Val3 0))(Val3 5))))),
+  testCase "test5" $ assertEqual []  (Just 15) (value3 (Mult3 (If (LessThan (Add3 (Val3 2) (Val3 2)) (Val3 5)) (Div3 (Val3 6)(Val3 2)) (Val3 7)) (Val3 5))),
+  testCase "test6" $ assertEqual []  (Just 35) (value3 (Mult3 (If (LessThan (Add3 (Val3 2) (Val3 6)) (Val3 5)) (Div3 (Val3 6)(Val3 2)) (Val3 7)) (Val3 5))),
+  testCase "test7" $ assertEqual []  Nothing (value3 (Div3 (Val3 8)(Val3 0))),
+  testCase "test8" $ assertEqual []  (Just 1) (value3 (Div3 (If (EqualTo (Val3 3) (Add3 (Val3 2)(Val3 1))) (If (Or (BoolLit True)(BoolLit False)) (Val3 25) (Val3 2)) (Val3 3)) (Val3 25))),
+  testCase "test9" $ assertEqual []  (Just 13) (value3 (Div3 (If (EqualTo (Val3 2) (Add3 (Val3 2)(Val3 1))) (If (Or (BoolLit True)(BoolLit False)) (Val3 25) (Val3 2)) (Val3 325)) (Val3 25)))
+
+  ]
+
+  ]
