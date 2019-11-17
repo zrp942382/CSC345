@@ -89,8 +89,9 @@ unitTests = testGroup "Unit tests"
         testCase "test2" $ assertEqual [] "iddledeedeefay" (piglatinize "fiddledeedee"),
         testCase "test3" $ assertEqual [] "askellhay" (piglatinize "haskell"),
         testCase "test4" $ assertEqual [] "abstemiousyay" (piglatinize "abstemious"),
-        testCase "test5" $ assertEqual [] "irthdaybay" (piglatinize "birthday"),
-        testCase "test6" $ assertEqual [] "oyay" (piglatinize "o")
+        testCase "test5" $ assertEqual [] "ocolatechay" (piglatinize "chocolate"),
+        testCase "test6" $ assertEqual [] "irthdaybay" (piglatinize "birthday"),
+        testCase "test7" $ assertEqual [] "oyay" (piglatinize "o")
     ]
 
   --6 (#7 in PDF): balanced :: Tree a -> Bool
