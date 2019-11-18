@@ -81,7 +81,9 @@ unitTests = testGroup "Unit tests"
     testCase "test_B2" $ assertEqual [] "20 - 22" (show (Sub2 (Val2 20) (Val2 22))),
     testCase "test_B3" $ assertEqual [] "7" (show ((Val2 7))),
     testCase "test_B4" $ assertEqual [] "0 - 3 + 5 - 12" (show (Sub2 (Val2 0) (Sub2 (Add2 (Val2 3) (Val2 5)) (Val2 12)))),
-    testCase "test_B5" $ assertEqual [] "-10 + 4 - 17 + 1" (show (Sub2 (Add2 (Val2 (-10)) (Val2 4)) (Add2 (Val2 (17)) (Val2 1))))
+    testCase "test_B5" $ assertEqual [] "-10 + 4 - 17 + 1" (show (Sub2 (Add2 (Val2 (-10)) (Val2 4)) (Add2 (Val2 (17)) (Val2 1)))),
+    testCase "test_B6" $ assertEqual [] "1000 / 4 * 17 - 50" (show (Mult2 (Div2 (Val2 (1000)) (Val2 4)) (Sub2 (Val2 (17)) (Val2 50)))),
+    testCase "test_B7" $ assertEqual [] "10 * 4 + -17 / 0" (show (Add2 (Mult2 (Val2 (10)) (Val2 4)) (Div2 (Val2 (-17)) (Val2 0))))
     ],
 
     --5 (#6 in PDF): piglatinize :: String -> String
