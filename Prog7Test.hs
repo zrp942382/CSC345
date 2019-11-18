@@ -68,8 +68,11 @@ unitTests = testGroup "Unit tests"
     testCase "test_C2" $ assertEqual [] (Just 3) (value2 (Div2 (Mult2 (Sub2 (Add2 (Val2 (-10)) (Val2 (8))) (Val2 (-17))) (Val2 4)) (Val2 20))),
     testCase "test_C3" $ assertEqual [] Nothing (value2 (Sub2 (Add2 (Val2 (-10)) (Val2 2)) (Div2 (Val2 (17)) (Val2 0)))),
     testCase "test_C4" $ assertEqual [] Nothing (value2 (Div2 (Mult2 (Val2 7) (Val2 3)) (Sub2 (Val2 (4)) (Add2 (Val2 1) (Val2 3))))),
-    testCase "test_C5" $ assertEqual [] Nothing (value2 (Div2 (Val2 11) (Val2 0)))
-    ],
+    testCase "test_C5" $ assertEqual [] Nothing (value2 (Div2 (Val2 11) (Val2 0))),
+    testCase "test_C6" $ assertEqual [] Nothing (value2 (Add2 (Add2 (Val2 (-10)) (Val2 2)) (Div2 (Val2 (17)) (Val2 0)))),
+    testCase "test_C7" $ assertEqual [] Nothing (value2 (Mult2 (Add2 (Val2 (-10)) (Val2 2)) (Div2 (Val2 (17)) (Val2 0))))
+
+   ],
 
     -- 4 (#5 in PDF): show :: Expr2 -> String
     testGroup "test_show"
