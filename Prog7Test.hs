@@ -118,13 +118,13 @@ unitTests = testGroup "Unit tests" [
 
         -- 4 (#5 in PDF): show :: Expr2 -> String
         testGroup "test_show" [
-            testCase "test1" $ assertEqualInternal (Add2 (Add2 (Val2 5) (Val2 10)) (Sub2 (Val2 5)(Val2 3))) "((5 + 10) + (5 - 3))" show,
-            testCase "test2" $ assertEqualInternal (Sub2 (Val2 20) (Val2 22)) "(20 - 22)" show,
+            testCase "test1" $ assertEqualInternal (Add2 (Add2 (Val2 5) (Val2 10)) (Sub2 (Val2 5)(Val2 3))) "((5+10)+(5-3))" show,
+            testCase "test2" $ assertEqualInternal (Sub2 (Val2 20) (Val2 22)) "(20-22)" show,
             testCase "test3" $ assertEqualInternal (Val2 7) "7" show,
-            testCase "test4" $ assertEqualInternal (Sub2 (Val2 0) (Sub2 (Add2 (Val2 3) (Val2 5)) (Val2 12))) "(0 - ((3 + 5) - 12))" show,
-            testCase "test5" $ assertEqualInternal (Sub2 (Add2 (Val2 (-10)) (Val2 4)) (Add2 (Val2 17) (Val2 1))) "((-10 + 4) - (17 + 1))" show,
-            testCase "test6" $ assertEqualInternal (Mul2 (Div2 (Val2 1000) (Val2 4)) (Sub2 (Val2 17) (Val2 50))) "((1000 / 4) * (17 - 50))" show,
-            testCase "test7" $ assertEqualInternal (Add2 (Mul2 (Val2 10) (Val2 4)) (Div2 (Val2 (-17)) (Val2 0))) "((10 * 4) + (-17 / 0))" show
+            testCase "test4" $ assertEqualInternal (Sub2 (Val2 0) (Sub2 (Add2 (Val2 3) (Val2 5)) (Val2 12))) "(0-((3+5)-12))" show,
+            testCase "test5" $ assertEqualInternal (Sub2 (Add2 (Val2 (-10)) (Val2 4)) (Add2 (Val2 17) (Val2 1))) "((-10+4)-(17+1))" show,
+            testCase "test6" $ assertEqualInternal (Mul2 (Div2 (Val2 1000) (Val2 4)) (Sub2 (Val2 17) (Val2 50))) "((1000/4)*(17-50))" show,
+            testCase "test7" $ assertEqualInternal (Add2 (Mul2 (Val2 10) (Val2 4)) (Div2 (Val2 (-17)) (Val2 0))) "((10*4)+(-17/0))" show
         ],
 
         --5 (#6 in PDF): piglatinize :: String -> String
