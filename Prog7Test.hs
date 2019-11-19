@@ -83,12 +83,12 @@ unitTests :: TestTree
 unitTests = testGroup "Unit tests" [
         -- 1: unique :: Eq a => [a] -> [a]
         testGroup "test_unique" [
-            testCase "test1" $ assertEqualShow "321abc123abc123" "123abc" (sort . unique),
-            testCase "test2" $ assertEqualShow "3" "3" (sort . unique),
-            testCase "test3" $ assertEqualShow [1, 2, 3, 4, 5] [1, 2, 3, 4, 5] (sort . unique),
-            testCase "test4" $ assertEqualShow [1, 2, 3, 4, 5, 1] [1, 2, 3, 4, 5] (sort . unique),
+            testCase "test1" $ assertEqualShow "321abcdef123abc123" "def" (sort . unique),
+            testCase "test2" $ assertEqualShow "0112234566778899" "0345" (sort . unique),
+            testCase "test3" $ assertEqualShow [1, 1, 3, 2, 2, 3, 6, 4, 5, 4, 6, 7, 8, 9, 9] [5, 7, 8] (sort . unique),
+            testCase "test4" $ assertEqualShow ['a', 'b', 'c', 'a', 'b', 'd'] ['c', 'd'] (sort . unique),
             testCase "test5" $ assertEqualShow "" "" (sort . unique),
-            testCase "test6" $ assertEqualShow [2, 1, 1, 1, 1, 1, 1] [1, 2] (sort . unique)
+            testCase "test6" $ assertEqualShow [3, 200, 5881, 200, 5881, 3, 1337, 42, 666, 42] [666, 1337] (sort . unique)
         ],
 
         -- 2: value1 :: Expr1 -> Int
