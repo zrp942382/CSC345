@@ -23,7 +23,7 @@ import System.Environment
 import Test.Tasty
 import Test.Tasty.HUnit
 
-class InternalShow a where 
+class InternalShow a where
     internalShow :: a -> String
 
 assertEqualShow :: (Eq o, Show t, Show o) => t -> o -> (t -> o)  -> Assertion
@@ -57,7 +57,6 @@ instance Show a => Show (Tree a) where
         tree1as3 (Leaf x)     = Tree3 (show x) []
         tree1as3 (Node l r) = Tree3 "\9472\9488" [tree1as3 l, tree1as3 r]
 
-
 instance InternalShow Expr1 where
   internalShow (Val1 n) = show n
   internalShow (Add1 l r) = (internalShow l) ++ " + " ++ (internalShow r)
@@ -65,7 +64,7 @@ instance InternalShow Expr1 where
 
 instance InternalShow Expr2 where
   internalShow (Val2 n) = show n
-  internalShow expr = '(':( case expr of 
+  internalShow expr = '(':( case expr of
         (Add2 l r) -> (internalShow l) ++ " + " ++ (internalShow r)
         (Sub2 l r) -> (internalShow l) ++ " - " ++ (internalShow r)
         (Mul2 l r) -> (internalShow l) ++ " * " ++ (internalShow r)
@@ -119,13 +118,13 @@ unitTests = testGroup "Unit tests" [
 
         -- 4 (#5 in PDF): show :: Expr2 -> String
         testGroup "test_show" [
-            testCase "test1" $ assertEqualInternal (Add2 (Add2 (Val2 5) (Val2 10)) (Sub2 (Val2 5)(Val2 3))) "5 + 10 + 5 - 3" show,
-            testCase "test2" $ assertEqualInternal (Sub2 (Val2 20) (Val2 22)) "20 - 22" show,
+            testCase "test1" $ assertEqualInternal (Add2 (Add2 (Val2 5) (Val2 10)) (Sub2 (Val2 5)(Val2 3))) "((5 + 10) + (5 - 3))" show,
+            testCase "test2" $ assertEqualInternal (Sub2 (Val2 20) (Val2 22)) "(20 - 22)" show,
             testCase "test3" $ assertEqualInternal (Val2 7) "7" show,
-            testCase "test4" $ assertEqualInternal (Sub2 (Val2 0) (Sub2 (Add2 (Val2 3) (Val2 5)) (Val2 12))) "0 - 3 + 5 - 12" show,
-            testCase "test5" $ assertEqualInternal (Sub2 (Add2 (Val2 (-10)) (Val2 4)) (Add2 (Val2 17) (Val2 1))) "-10 + 4 - 17 + 1" show,
-            testCase "test6" $ assertEqualInternal (Mul2 (Div2 (Val2 1000) (Val2 4)) (Sub2 (Val2 17) (Val2 50))) "1000 / 4 * 17 - 50" show,
-            testCase "test7" $ assertEqualInternal (Add2 (Mul2 (Val2 10) (Val2 4)) (Div2 (Val2 (-17)) (Val2 0))) "10 * 4 + -17 / 0" show
+            testCase "test4" $ assertEqualInternal (Sub2 (Val2 0) (Sub2 (Add2 (Val2 3) (Val2 5)) (Val2 12))) "(0 - ((3 + 5) - 12))" show,
+            testCase "test5" $ assertEqualInternal (Sub2 (Add2 (Val2 (-10)) (Val2 4)) (Add2 (Val2 17) (Val2 1))) "((-10 + 4) - (17 + 1))" show,
+            testCase "test6" $ assertEqualInternal (Mul2 (Div2 (Val2 1000) (Val2 4)) (Sub2 (Val2 17) (Val2 50))) "((1000 / 4) * (17 - 50))" show,
+            testCase "test7" $ assertEqualInternal (Add2 (Mul2 (Val2 10) (Val2 4)) (Div2 (Val2 (-17)) (Val2 0))) "((10 * 4) + (-17 / 0))" show
         ],
 
         --5 (#6 in PDF): piglatinize :: String -> String
@@ -139,7 +138,7 @@ unitTests = testGroup "Unit tests" [
             testCase "test7" $ assertEqualShow "o" "oyay" piglatinize
         ],
 
-          --6 (#7 in PDF): balanced :: Tree a -> Bool
+        --6 (#7 in PDF): balanced :: Tree a -> Bool
         testGroup "test_balanced" [
             testCase "test1" $ assertEqualShow (Node (Node (Leaf 'a') (Leaf 'b')) (Leaf 'c')) True balanced,
             testCase "test2" $ assertEqualShow (Node (Node (Node (Leaf 5) (Leaf 5)) (Leaf (-1))) (Leaf 6)) False balanced,
@@ -151,7 +150,7 @@ unitTests = testGroup "Unit tests" [
             testCase "test8" $ assertEqualShow (Node (Leaf 'a') (Leaf 'b')) True balanced
         ],
 
-          -- 7 (#9 in PDF): bEval :: BExpr3 -> Bool
+        -- 7 (#9 in PDF): bEval :: BExpr3 -> Bool
         testGroup "test_bEval" [
             testCase "test1" $ assertEqual []  True (bEval (Or (EqualTo (Val3 5) (Div3(Val3 15)(Val3 3))) (BoolLit True))),
             testCase "test2" $ assertEqual []  True (bEval (EqualTo (Val3 (-3)) (Sub3 (Val3 4) (Val3 7)))),
