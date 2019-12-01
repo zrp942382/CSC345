@@ -99,5 +99,15 @@ unitTests = testGroup "Unit tests" [
             testCase "test5" $ assertEqual [] [182] (lengths ["Lopadotemachoselachogaleokranioleipsanodrimhypotrimmatosilphioparaomelitokatakechymenokichlepikossyphophattoperisteralektryonoptekephalliokigklopeleiolagoiosiraiobaphetraganopterygon"]),
             testCase "test6" $ assertEqual [] [1,0,2,3] (lengths ["1","","20","345"]),
             testCase "test7" $ assertEqual [] [4,7,10,18] (lengths ["$@#!","&%&#*@(","+__DWJ(H*@", "><POO?@)@()#&!_+-="])
-        ]-- UNCOMMENT COMMA ,
+        ],
+
+        testGroup "test_product'" [
+            testCase "test1" $ assertEqual [] 0 (product' [0]),
+            testCase "test2" $ assertEqual [] 1 (product' [1]),
+            testCase "test3" $ assertEqual [] 6 (product' [1,2,3]),
+            testCase "test4" $ assertEqual [] (-216) (product' [1,-2,-3,4,-1,9]),
+            testCase "test5" $ assertEqual [] 352000000 (product' [2,11,2,2,2,2,1000,100,10]),
+            testCase "test6" $ assertEqual [] 0 (product' [11,-932,0,1,-12,14,5,-81]),
+            testCase "test7" $ assertEqual [] 697546080 (product' [11,-932,1,-12,14,5,81])
+        ]
     ]
