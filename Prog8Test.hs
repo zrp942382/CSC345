@@ -45,7 +45,7 @@ unitTests = testGroup "Unit tests" [
 
         -- 2. containing :: Eq a => [a] -> [a] -> Bool
         testGroup "test_containing" [
-            --testCase "test1" $ assertEqual [] True (containing [] []),
+            testCase "test1" $ assertEqual [] True (containing ([]::[Int]) ([]::[Int])),
             testCase "test2" $ assertEqual [] True (containing [1] [1]),
             testCase "test3" $ assertEqual [] True (containing [] [1]),
             testCase "test4" $ assertEqual [] True (containing [1,2,3,4,42] [1,2,3,4,42]),
@@ -56,7 +56,7 @@ unitTests = testGroup "Unit tests" [
             testCase "test9" $ assertEqual [] False (containing [1,2,3,4,5] [1,2,3,4]),
             testCase "test10" $ assertEqual [] False (containing [1,2,3,4,5] [2,3,4,5,95]),
             testCase "test11" $ assertEqual [] False (containing [1,2,3,4,5] [2,3,4,5]),
-            testCase "test12" $ assertEqual [] False (containing [1,1,1] [1,1]),
+            testCase "test12" $ assertEqual [] True (containing [1,1,1] [1,1]),
             testCase "test13" $ assertEqual [] False (containing [1,2,3,4,5] [])
         ],
 
@@ -73,9 +73,9 @@ unitTests = testGroup "Unit tests" [
             testCase "test9" $ assertEqual [] (-23) (total (1 -) [2,3,5,7,11])
         ],
 
-        -- 4.
+        -- 4. lengths :: [String] -> [Int]
         testGroup "test_containing'" [
-            --testCase "test1" $ assertEqual [] True (containing [] []),
+            testCase "test1" $ assertEqual [] True (containing ([]::[Int]) ([]::[Int])),
             testCase "test2" $ assertEqual [] True (containing' [1] [1]),
             testCase "test3" $ assertEqual [] True (containing' [] [1]),
             testCase "test4" $ assertEqual [] True (containing' [1,2,3,4,42] [1,2,3,4,42]),
@@ -86,11 +86,11 @@ unitTests = testGroup "Unit tests" [
             testCase "test9" $ assertEqual [] False (containing' [1,2,3,4,5] [1,2,3,4]),
             testCase "test10" $ assertEqual [] False (containing' [1,2,3,4,5] [2,3,4,5,95]),
             testCase "test11" $ assertEqual [] False (containing' [1,2,3,4,5] [2,3,4,5]),
-            testCase "test12" $ assertEqual [] False (containing' [1,1,1] [1,1]),
+            testCase "test12" $ assertEqual [] True (containing' [1,1,1] [1,1]),
             testCase "test13" $ assertEqual [] False (containing' [1,2,3,4,5] [])
         ],
 
-        -- 5 lengths :: [String] -> [Int]
+        -- 5. lengths :: [String] -> [Int]
         testGroup "test_lengths" [
             testCase "test1" $ assertEqual [] [] (lengths []),
             testCase "test2" $ assertEqual [] [0,0,0] (lengths ["","",""]),
@@ -101,6 +101,7 @@ unitTests = testGroup "Unit tests" [
             testCase "test7" $ assertEqual [] [4,7,10,18] (lengths ["$@#!","&%&#*@(","+__DWJ(H*@", "><POO?@)@()#&!_+-="])
         ],
 
+        -- 6. product' :: Num a => [a] -> a
         testGroup "test_product'" [
             testCase "test1" $ assertEqual [] 0 (product' [0]),
             testCase "test2" $ assertEqual [] 1 (product' [1]),
