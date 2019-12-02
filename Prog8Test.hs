@@ -1,4 +1,4 @@
-{- Test Cases for HW 8 -> Prog7=8.hs
+{- Test Cases for HW 8 -> Prog8.hs
 West Chester University
 CSC 345 - Programming Language Concepts / Paradigms - Fall 2019
 Original format provided by: Richard Burns, distributed with permission.
@@ -64,7 +64,7 @@ unitTests = testGroup "Unit tests" [
         ],
 
         -- 3. total :: (Int -> Int) -> [Int] -> Int
-        testGroup "total" [
+        testGroup "test_total" [
             testCase "test1" $ assertEqual [] 0 (total (* 2) []),
             testCase "test2" $ assertEqual [] 12 (total (* 2) [1,2,3]),
             testCase "test3" $ assertEqual [] 92 (total (+ 3) [11,15,12,42]),
