@@ -2,7 +2,7 @@
 "Prog1Test.hs" - Test Cases for HW 1 -> Prog1.hs
 West Chester University - CSC 345 - Programming Language Concepts / Paradigms - Spring 2020
 Original format provided by: Richard Burns , distributed with permission.
-Custom additions & modifications in 2019 for Prog1 by: Mahmoud Gudarzi, Anton Adamovich, and Akash Kumar, Zachary Perales
+Custom additions & modifications in 2019 for Prog1 by: Mahmoud Gudarzi, Anton Adamovich, and Akash Kumar
 Custom additions & modifications in 2020 for Prog1 by: Zachary Perales
 AUTHORS GIVE NO GUARANTEES THAT TEST CASES ARE CORRECT OR COMPLETE.
 INTRUCTOR HAS FINAL WORD CONCERNING THE FUNCTIONALITY OF YOUR CODE.
