@@ -35,8 +35,8 @@ main = do
              dividesEvenlyByFive 0 == True &&  -- Should probably return true, but 0 isn't being tested. Remove this line if you want.
              dividesEvenlyByFive 11 == False &&
              dividesEvenlyByFive (-11)== False
-              then putStrLn "Works!"
-              else putStrLn "Does not work."
+               then putStrLn "Works!"
+               else putStrLn "Does not work."
 			  
           putStr "3. middle: " -- Test wasn't modified from the original test. 
           if middle 4 2 1 == 2 &&
