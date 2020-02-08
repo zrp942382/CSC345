@@ -122,13 +122,13 @@ main = do
 			 howManyWithinThreshold 9 3 6 3.0 == 1 &&
 			 howManyWithinThreshold 3 9 6 3.0 == 1 &&
 			 howManyWithinThreshold 6 9 3 3.0 == 1 &&
-			 howManyWithinThreshold 9 6 3 3.0 == 1 &&
-			 howManyWithinThreshold (-3) (-6) (-9) 3.0 == 1 &&
-			 howManyWithinThreshold (-6) (-3) (-9) 3.0 == 1 &&
+		     howManyWithinThreshold 9 6 3 3.0 == 1 &&
+		     howManyWithinThreshold (-3) (-6) (-9) 3.0 == 1 &&
+	 	     howManyWithinThreshold (-6) (-3) (-9) 3.0 == 1 &&
 			 howManyWithinThreshold (-9) (-3) (-6) 3.0 == 1 &&
-			 howManyWithinThreshold (-3) (-9) (-6) 3.0 == 1 &&
-			 howManyWithinThreshold (-6) (-9) (-3) 3.0 == 1 &&
-			 howManyWithinThreshold (-9) (-6) (-3) 3.0 == 1 &&
+		     howManyWithinThreshold (-3) (-9) (-6) 3.0 == 1 &&
+		     howManyWithinThreshold (-6) (-9) (-3) 3.0 == 1 &&
+	   	     howManyWithinThreshold (-9) (-6) (-3) 3.0 == 1 &&
 			 howManyWithinThreshold 3 6 9 3.1 == 3 &&
 			 howManyWithinThreshold 6 3 9 3.1 == 3 &&
 			 howManyWithinThreshold 9 3 6 3.1 == 3 &&
