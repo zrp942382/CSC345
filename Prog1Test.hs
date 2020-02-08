@@ -116,54 +116,54 @@ main = do
                then putStrLn "Works!"
                else putStrLn "Does not work."
 			   
-		  putStr "10. howManyWithinThreshold: " -- New test.
+          putStr "10. howManyWithinThreshold: " -- New test.
           if howManyWithinThreshold 3 6 9 3.0 == 1 &&
-			    howManyWithinThreshold 6 3 9 3.0 == 1 &&
-			    howManyWithinThreshold 9 3 6 3.0 == 1 &&
-			    howManyWithinThreshold 3 9 6 3.0 == 1 &&
-			    howManyWithinThreshold 6 9 3 3.0 == 1 &&
-			    howManyWithinThreshold 9 6 3 3.0 == 1 &&
-			    howManyWithinThreshold (-3) (-6) (-9) 3.0 == 1 &&
-			    howManyWithinThreshold (-6) (-3) (-9) 3.0 == 1 &&
-			    howManyWithinThreshold (-9) (-3) (-6) 3.0 == 1 &&
-			    howManyWithinThreshold (-3) (-9) (-6) 3.0 == 1 &&
-			    howManyWithinThreshold (-6) (-9) (-3) 3.0 == 1 &&
-			    howManyWithinThreshold (-9) (-6) (-3) 3.0 == 1 &&
-			    howManyWithinThreshold 3 6 9 3.1 == 3 &&
-			    howManyWithinThreshold 6 3 9 3.1 == 3 &&
-			    howManyWithinThreshold 9 3 6 3.1 == 3 &&
-			    howManyWithinThreshold 3 9 6 3.1 == 3 &&
-			    howManyWithinThreshold 6 9 3 3.1 == 3 &&
-			    howManyWithinThreshold 9 6 3 3.1 == 3 &&
-			    howManyWithinThreshold (-3) (-6) (-9) 3.1 == 3 &&
-			    howManyWithinThreshold (-6) (-3) (-9) 3.1 == 3 &&
-			    howManyWithinThreshold (-9) (-3) (-6) 3.1 == 3 &&
-			    howManyWithinThreshold (-3) (-9) (-6) 3.1 == 3 &&
-			    howManyWithinThreshold (-6) (-9) (-3) 3.1 == 3 &&
-			    howManyWithinThreshold (-9) (-6) (-3) 3.1 == 3 &&
-			    howManyWithinThreshold 10 1 2 3.5 == 2 &&
-			    howManyWithinThreshold 1 10 2 3.5 == 2 &&
-			    howManyWithinThreshold 2 10 1 3.5 == 2 &&
-			    howManyWithinThreshold 10 2 1 3.5 == 2 &&
-			    howManyWithinThreshold 1 2 10 3.5 == 2 &&
-			    howManyWithinThreshold 2 1 10 3.5 == 2 &&
-			    howManyWithinThreshold (-10) (-1) (-2) 3.5 == 2 &&
-			    howManyWithinThreshold (-1) (-10) (-2) 3.5 == 2 &&
-			    howManyWithinThreshold (-2) (-10) (-1) 3.5 == 2 &&
-			    howManyWithinThreshold (-10) (-2) (-1) 3.5 == 2 &&
-			    howManyWithinThreshold (-1) (-2) (-10) 3.5 == 2 &&
-			    howManyWithinThreshold (-2) (-1) (-10) 3.5 == 2 &&
-			    howManyWithinThreshold 100 1000 10000 10.0 == 0 &&
-			    howManyWithinThreshold 1000 100 10000 10.0 == 0 &&
-			    howManyWithinThreshold 10000 100 1000 10.0 == 0 &&
-			    howManyWithinThreshold 100 10000 1000 10.0 == 0 &&
-			    howManyWithinThreshold 1000 10000 100 10.0 == 0 &&
-			    howManyWithinThreshold 10000 1000 100 10.0 == 0 &&
-			    howManyWithinThreshold (-100) (-1000) (-10000) 10.0 == 0 &&
-			    howManyWithinThreshold (-1000) (-100) (-10000) 10.0 == 0 &&
-			    howManyWithinThreshold (-10000) (-100) (-1000) 10.0 == 0 &&
-			    howManyWithinThreshold (-100) (-10000) (-1000) 10.0 == 0 &&
-			    howManyWithinThreshold (-1000) (-10000) (-100) 10.0 == 0 &&
-			    howManyWithinThreshold (-10000) (-1000) (-100) 10.0 == 0 
+             howManyWithinThreshold 6 3 9 3.0 == 1 &&
+             howManyWithinThreshold 9 3 6 3.0 == 1 &&
+             howManyWithinThreshold 3 9 6 3.0 == 1 &&
+             howManyWithinThreshold 6 9 3 3.0 == 1 &&
+             howManyWithinThreshold 9 6 3 3.0 == 1 &&
+             howManyWithinThreshold (-3) (-6) (-9) 3.0 == 1 &&
+             howManyWithinThreshold (-6) (-3) (-9) 3.0 == 1 &&
+             howManyWithinThreshold (-9) (-3) (-6) 3.0 == 1 &&
+             howManyWithinThreshold (-3) (-9) (-6) 3.0 == 1 &&
+             howManyWithinThreshold (-6) (-9) (-3) 3.0 == 1 &&
+             howManyWithinThreshold (-9) (-6) (-3) 3.0 == 1 &&
+             howManyWithinThreshold 3 6 9 3.1 == 3 &&
+             howManyWithinThreshold 6 3 9 3.1 == 3 &&
+             howManyWithinThreshold 9 3 6 3.1 == 3 &&
+             howManyWithinThreshold 3 9 6 3.1 == 3 &&
+             howManyWithinThreshold 6 9 3 3.1 == 3 &&
+             howManyWithinThreshold 9 6 3 3.1 == 3 &&
+             howManyWithinThreshold (-3) (-6) (-9) 3.1 == 3 &&
+             howManyWithinThreshold (-6) (-3) (-9) 3.1 == 3 &&
+             howManyWithinThreshold (-9) (-3) (-6) 3.1 == 3 &&
+             howManyWithinThreshold (-3) (-9) (-6) 3.1 == 3 &&
+             howManyWithinThreshold (-6) (-9) (-3) 3.1 == 3 &&
+             howManyWithinThreshold (-9) (-6) (-3) 3.1 == 3 &&
+             howManyWithinThreshold 10 1 2 3.5 == 2 &&
+             howManyWithinThreshold 1 10 2 3.5 == 2 &&
+             howManyWithinThreshold 2 10 1 3.5 == 2 &&
+             howManyWithinThreshold 10 2 1 3.5 == 2 &&
+             howManyWithinThreshold 1 2 10 3.5 == 2 &&
+             howManyWithinThreshold 2 1 10 3.5 == 2 &&
+             howManyWithinThreshold (-10) (-1) (-2) 3.5 == 2 &&
+             howManyWithinThreshold (-1) (-10) (-2) 3.5 == 2 &&
+             howManyWithinThreshold (-2) (-10) (-1) 3.5 == 2 &&
+             howManyWithinThreshold (-10) (-2) (-1) 3.5 == 2 &&
+             howManyWithinThreshold (-1) (-2) (-10) 3.5 == 2 &&
+             howManyWithinThreshold (-2) (-1) (-10) 3.5 == 2 &&
+             howManyWithinThreshold 100 1000 10000 10.0 == 0 &&
+             howManyWithinThreshold 1000 100 10000 10.0 == 0 &&
+             howManyWithinThreshold 10000 100 1000 10.0 == 0 &&
+             howManyWithinThreshold 100 10000 1000 10.0 == 0 &&
+             howManyWithinThreshold 1000 10000 100 10.0 == 0 &&
+             howManyWithinThreshold 10000 1000 100 10.0 == 0 &&
+             howManyWithinThreshold (-100) (-1000) (-10000) 10.0 == 0 &&
+             howManyWithinThreshold (-1000) (-100) (-10000) 10.0 == 0 &&
+             howManyWithinThreshold (-10000) (-100) (-1000) 10.0 == 0 &&
+             howManyWithinThreshold (-100) (-10000) (-1000) 10.0 == 0 &&
+             howManyWithinThreshold (-1000) (-10000) (-100) 10.0 == 0 &&
+             howManyWithinThreshold (-10000) (-1000) (-100) 10.0 == 0 
                then putStrLn "Works!"
                else putStrLn "Does not work."
