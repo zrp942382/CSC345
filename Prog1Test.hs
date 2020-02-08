@@ -78,7 +78,7 @@ main = do
                then putStrLn "Works!"
                else putStrLn "Does not work."
 
-          putStr "8. letterGrade: "  -- Test wasn't modified from the original test.
+          putStr "7. letterGrade: "  -- Test wasn't modified from the original test.
           if letterGrade 0 == "F" &&
              letterGrade 59 == "F" &&
              letterGrade 60 == "D-" &&
@@ -96,7 +96,7 @@ main = do
                then putStrLn "Works!"
                else putStrLn "Does not work."
 
-          putStr "9. averageThree: "  -- Test wasn't modified from the original test.
+          putStr "8. averageThree: "  -- Test wasn't modified from the original test.
           if averageThree 1 1 1 == 1.0 &&
              averageThree 42 42 42 == 42.0 &&
              averageThree 12 4 5 == 7.0 &&
@@ -105,7 +105,7 @@ main = do
                then putStrLn "Works!"
                else putStrLn "Does not work."
 
-          putStr "10. howManyAboveAverage: " -- Modified Test.
+          putStr "9. howManyAboveAverage: " -- Modified Test.
           if howManyAboveAverage 1 1 1 == 0 &&
              howManyAboveAverage (-42) (-42) (-42) == 0 &&
              howManyAboveAverage 30 40 50 == 1 &&
