@@ -1,8 +1,11 @@
 # CSC345 Haskell Test Cases
-Haskell Test Cases for CSC 345: Programming Languages and Paradigms  
+Haskell Test Cases for CSC 345: Programming Languages and Paradigms 
+
+## Installing Cabal and Haskell on Windows
+https://www.haskell.org/platform/
 
 ## Dependencies
-Run the following commands in a terminal:
+Run the following commands in a terminal or the command prompt:
 ```
   cabal update
   
