@@ -39,15 +39,56 @@ main = do
                else putStrLn "Does not work."
 			  
           putStr "3. middle: " -- Test wasn't modified from the original test. 
-          if middle 4 2 1 == 2 &&
-             middle 2 1 3 == 2 &&
-             middle 9 9 9 == 9 &&
-             middle 5 1 4 == 4 &&
-             middle (-2) 3 2 == 2 &&
-             middle 12 18 (-100) == 12 &&
-             middle (-1) (-4) (-5) == (-4) &&
+          if middle 3 6 9 == 6 &&
+             middle 6 3 9 == 6 &&
+             middle 9 3 6 == 6 &&
+             middle 3 9 6 == 6 &&
+             middle 6 9 3 == 6 &&
+             middle 9 6 3 == 6 &&
+             middle (-3) (-6) (-9) == (-6) &&
+             middle (-6) (-3) (-9) == (-6) &&
+             middle (-9) (-3) (-6) == (-6) &&
+             middle (-3) (-9) (-6) == (-6) &&
+             middle (-6) (-9) (-3) == (-6) &&
+             middle (-9) (-6) (-3) == (-6) &&
+             middle 10 1 2 == 2 &&
+             middle 1 10 2 == 2 &&
+             middle 2 10 1 == 2 &&
+             middle 10 2 1 == 2 &&
+             middle 1 2 10 == 2 &&
+             middle 2 1 10 == 2 &&
+             middle (-10) (-1) (-2) == (-2) &&
+             middle (-1) (-10) (-2) == (-2) &&
+             middle (-2) (-10) (-1) == (-2) &&
+             middle (-10) (-2) (-1) == (-2) &&
+             middle (-1) (-2) (-10) == (-2) &&
+             middle (-2) (-1) (-10) == (-2) &&
+             middle 100 1000 10000 == 1000 &&
+             middle 1000 100 10000 == 1000 &&
+             middle 10000 100 1000 == 1000 &&
+             middle 100 10000 1000 == 1000 &&
+             middle 1000 10000 100 == 1000 &&
+             middle 10000 1000 100 == 1000 &&
+             middle (-100) (-1000) (-10000) == (-1000) &&
+             middle (-1000) (-100) (-10000) == (-1000) &&
+             middle (-10000) (-100) (-1000) == (-1000) &&
+             middle (-100) (-10000) (-1000) == (-1000) &&
+             middle (-1000) (-10000) (-100) == (-1000) &&
+             middle (-10000) (-1000) (-100) == (-1000) &&
+             middle 3 3 3 == 3 &&
+             middle 2 3 3 == 3 &&
+             middle 3 2 3 == 3 &&
+             middle 3 3 2 == 3 &&
+             middle 3 2 2 == 2 &&
+             middle 2 3 2 == 2 &&
+             middle 2 2 3 == 2 &&
+             middle (-3) (-3) (-3) == (-3) &&
+             middle (-2) (-3) (-3) == (-3) &&
+             middle (-3) (-2) (-3) == (-3) &&
+             middle (-3) (-3) (-2) == (-3) &&
              middle (-3) (-2) (-2) == (-2) &&
-             middle (-42) (-42) (-42) == (-42)
+             middle (-2) (-3) (-2) == (-2) &&
+             middle (-2) (-2) (-3) == (-2)
                then putStrLn "Works!"
                else putStrLn "Does not work."
 
@@ -106,13 +147,57 @@ main = do
                else putStrLn "Does not work."
 
           putStr "9. howManyAboveAverage: " -- Modified Test.
-          if howManyAboveAverage 1 1 1 == 0 &&
-             howManyAboveAverage (-42) (-42) (-42) == 0 &&
-             howManyAboveAverage 30 40 50 == 1 &&
-             howManyAboveAverage (-4) (-10) (-7) == 1 &&
-             howManyAboveAverage 100 70 10 == 2 &&
+          if howManyAboveAverage 3 6 9 == 1 &&
+             howManyAboveAverage 6 3 9 == 1 &&
+             howManyAboveAverage 9 3 6 == 1 &&
+             howManyAboveAverage 3 9 6 == 1 &&
+             howManyAboveAverage 6 9 3 == 1 &&
+             howManyAboveAverage 9 6 3 == 1 &&
+             howManyAboveAverage (-3) (-6) (-9) == 1 &&
+             howManyAboveAverage (-6) (-3) (-9) == 1 &&
+             howManyAboveAverage (-9) (-3) (-6) == 1 &&
+             howManyAboveAverage (-3) (-9) (-6) == 1 &&
+             howManyAboveAverage (-6) (-9) (-3) == 1 &&
+             howManyAboveAverage (-9) (-6) (-3) == 1 &&
+             howManyAboveAverage 10 1 2 == 1 &&
+             howManyAboveAverage 1 10 2 == 1 &&
+             howManyAboveAverage 2 10 1 == 1 &&
+             howManyAboveAverage 10 2 1 == 1 &&
+             howManyAboveAverage 1 2 10 == 1 &&
+             howManyAboveAverage 2 1 10 == 1 &&
+             howManyAboveAverage (-10) (-1) (-2) == 2 &&
+             howManyAboveAverage (-1) (-10) (-2) == 2 &&
+             howManyAboveAverage (-2) (-10) (-1) == 2 &&
+             howManyAboveAverage (-10) (-2) (-1) == 2 &&
+             howManyAboveAverage (-1) (-2) (-10) == 2 &&
+             howManyAboveAverage (-2) (-1) (-10) == 2 &&
+             howManyAboveAverage 100 1000 10000 == 1 &&
+             howManyAboveAverage 1000 100 10000 == 1 &&
+             howManyAboveAverage 10000 100 1000 == 1 &&
+             howManyAboveAverage 100 10000 1000 == 1 &&
+             howManyAboveAverage 1000 10000 100 == 1 &&
+             howManyAboveAverage 10000 1000 100 == 1 &&
+             howManyAboveAverage (-100) (-1000) (-10000) == 2 &&
+             howManyAboveAverage (-1000) (-100) (-10000) == 2 &&
+             howManyAboveAverage (-10000) (-100) (-1000) == 2 &&
+             howManyAboveAverage (-100) (-10000) (-1000) == 2 &&
+             howManyAboveAverage (-1000) (-10000) (-100) == 2 &&
+             howManyAboveAverage (-10000) (-1000) (-100) == 2 &&
+             howManyAboveAverage 3 3 3 == 0 &&
              howManyAboveAverage 2 3 3 == 2 &&
-             howManyAboveAverage (-3000) (-40) 100 == 2
+             howManyAboveAverage 3 2 3 == 2 &&
+             howManyAboveAverage 3 3 2 == 2 &&
+             howManyAboveAverage 3 2 2 == 1 &&
+             howManyAboveAverage 2 3 2 == 1 &&
+             howManyAboveAverage 2 2 3 == 1 &&
+             howManyAboveAverage (-3) (-3) (-3) == 0 &&
+             howManyAboveAverage (-2) (-3) (-3) == 1 &&
+             howManyAboveAverage (-3) (-2) (-3) == 1 &&
+             howManyAboveAverage (-3) (-3) (-2) == 1 &&
+             howManyAboveAverage (-3) (-2) (-2) == 2 &&
+             howManyAboveAverage (-2) (-3) (-2) == 2 &&
+             howManyAboveAverage (-2) (-2) (-3) == 2 &&
+             howManyAboveAverage 0 0 0 == 0
                then putStrLn "Works!"
                else putStrLn "Does not work."
 			   
