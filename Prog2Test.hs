@@ -17,7 +17,7 @@ import Prog2
 main :: IO ()
 main = do
           putStrLn "Testing Prog2: "
-
+          
           putStr "1. threeDifferent: " -- Test wasn't modified from the original test.
           if threeDifferent 1 2 3          == True  && 
              threeDifferent 12 6 5         == True  && 
@@ -31,12 +31,28 @@ main = do
           else putStrLn "Does not work."
 
           putStr "2. fourDifferent: " -- New test.
-          if   ... == ...
+          if fourDifferent 1 2 3 4             == True  && 
+             fourDifferent 12 6 5 4            == True  && 
+             fourDifferent (-2) 13 10 4        == True  && 
+             fourDifferent 2 4 (-6) 3          == True  && 
+             fourDifferent (-2) (-4) (-6) (-3) == True  &&
+             fourDifferent 42 42 20 19         == False &&
+             fourDifferent 42 42 42 20         == False &&
+             fourDifferent 21 20 21 20         == False && 
+             fourDifferent 19 42 20 42         == False &&
+             fourDifferent 20 20 42 42         == False &&
+             fourDifferent 21 21 21 21         == False && 
+             fourDifferent (-3) (-2) (-3) (-1) == False && 
+             fourDifferent (-3) (-2) (-3) (-3) == False &&
+             fourDifferent (-3) (-3) (-3) (-3) == False && 
+             fourDifferent (-3) 1 (-3) (-3)    == False &&
+             fourDifferent 3 3 3 3             == False
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
-          putStr "3. sum': " -- Test wasn't modified from the original test.
-          if sum' 1     == sum [1]          &&
+          putStr "3. sum': " -- Test slightly modified from the original test.
+          if sum' 0     /= sum [0]          && -- Need to check if this is necessary. Technically this should NOT return 0. 
+             sum' 1     == sum [1]          &&
              sum' 2     == sum [1,2]        &&
              sum' 10    == sum [1 .. 10]    &&
              sum' 42    == sum [1 .. 42]    &&
@@ -46,12 +62,11 @@ main = do
           else putStrLn "Does not work."
 
           putStr "4. asciisum: " -- Functionality changed from abssum.
-          if abssum 1 95        == sum [1 .. 95] && 
-             abssum (-1) 5      == 16            && 
-             abssum (-8) (-5)   == 26            && 
-             abssum 0 0         == 0             && 
-             abssum 1 1         == 1             && 
-             abssum (-13) (-13) == 13
+          if asciisum "Donate $2.70 to Sander's Campaign!" == 2785 && 
+             asciisum "#@*(^&#$@"                          == 448  && 
+             asciisum "    "                               == 41   && -- Tab and a space
+             asciisum " "                                  == 32   && -- Space
+             asciisum ""                                   == 0       -- Empty string or null
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
@@ -63,26 +78,34 @@ main = do
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
-          putStr "6. largeSmall: " -- Changed to orderTriple
-          if largeSmall (1,2,3)             == (3,1)     &&
-             largeSmall (22,33,19)          == (33,19)   &&
-             largeSmall (10,1,-4)           == (10,(-4)) &&
-             largeSmall (3,3,3)             == (3,3)     &&
-             largeSmall ((-42),(-42),(-42)) == ((-42),(-42))
+          putStr "6. orderTriple: " -- New test.
+          if orderTriple (1,2,3)             == (1,2,3)     &&
+             orderTriple (22,33,19)          == (19,22,33)  &&
+             orderTriple (10,1,(-4))         == ((-4),1,10) &&
+             orderTriple (3,3,3)             == (3,3,3)     &&
+             orderTriple (3,3,2)             == (2,3,3)     &&
+             orderTriple ((-3), (-3), (-2))  == ((-3), (-3), (-2)) &&
+             orderTriple ((-42),(-42),(-42)) == ((-42),(-42),(-42))
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
           putStr "7. swap: " -- Functionality changed
-          if swap ('a','b','c','d') == ('a','c','b','d') &&
-             swap ('1','2','3','4') == ('1','3','2','4')
+          if swap ('a','b','c','d') == ('d','b','c','a') &&
+             swap ('1','2','3','4') == ('4','2','3','1') &&
+             swap ('1','1','1','1') == ('1','1','1','1') &&
+             swap ('1','2','3','1') == ('1','2','3','1')
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
-          putStr "8. negateOdds: " -- Changed to negateTwoDigits 
-          if negateOdds [1,2,3,4]        == [(-1),2,(-3),4]     &&
-             negateOdds [12,14,55,33]    == [12,14,(-55),(-33)] &&
-             negateOdds [(-3),5,7,(-17)] == [3,(-5),(-7),17]    &&
-             negateOdds [2,4,(-6),8]     == [2,4,(-6),8]
+          putStr "8. negateTwoDigits: " -- New test.
+          if negateTwoDigits [1,2,3,4]                             == [1,2,3,4]                        &&
+             negateTwoDigits [12,14,55,33]                         == [(-12),(-14),(-55),(-33)]        &&
+             negateTwoDigits [100, 200, 300, 400]                  == [100, 200, 300, 400]             &&
+             negateTwoDigits [2,4,(-16),8]                         == [2,4,16,8]                       &&
+             negateTwoDigits [(-1),(-2),(-3),(-4)]                 == [(-1),(-2),(-3),(-4)]            &&
+             negateTwoDigits [(-12),(-14),(-55),(-33)]             == [12,14,55,33]                    &&
+             negateTwoDigits [(-100), (-200), (-300), (-400)]      == [(-100), (-200), (-300), (-400)] &&
+             negateTwoDigits [(-2),(-4),16,(-8)]                   == [(-2),(-4),(-16),(-8)]               
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
