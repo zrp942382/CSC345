@@ -232,6 +232,12 @@ main = do
 
           putStr "7. lowerFirstCharacter: "
           if   lowerFirstCharacter "Crocodile" == "crocodile" &&
+               lowerFirstCharacter " " == " " &&
+               lowerFirstCharacter "" == "" &&
+               lowerFirstCharacter "D" == "d" &&
+               lowerFirstCharacter " D" == " D" &&
+               lowerFirstCharacter " *^~ C *^~ c *^~ D *^~ E *^~" == " *^~ C *^~ c *^~ D *^~ E *^~" &&
+               lowerFirstCharacter "E *^~ C *^~ c *^~ D *^~ E *^~" == "e *^~ C *^~ c *^~ D *^~ E *^~" &&
                lowerFirstCharacter "+^Cro+^codile" == "+^Cro+^codile" && -- Remove if he's not including non-alphabetic characters, I am still waiting to hear back on Slack about this.
                lowerFirstCharacter "crocodile" == "crocodile"
           then putStrLn "Works! Check to make sure that you used list library functions or list comprehension and not recursion."
@@ -245,6 +251,9 @@ main = do
 
           putStr "9. lowerFirstLetter: "
           if   lowerFirstLetter "crocodile" == "crocodile" &&
+               lowerFirstLetter " " == " " &&
+               lowerFirstLetter "" == "" &&
+               lowerFirstLetter " *^~ C *^~ c *^~ D *^~ E *^~" == " *^~ c *^~ c *^~ D *^~ E *^~" &&
                lowerFirstLetter "+^crOc+^oDile+^" == "+^croc+^oDile+^" && -- Remove if he's not including non-alphabetic characters, I am still waiting to hear back on Slack about this.
                lowerFirstLetter "cRoCodilE" == "croCodilE"
           then putStrLn "Works! Check to make sure that you used list library functions or list comprehension and not recursion."
@@ -252,7 +261,10 @@ main = do
 
           putStr "10. lowerFirstTwoLetters: "
           if   lowerFirstTwoLetters "CRocOdilE" == "crocOdilE" &&
+               lowerFirstTwoLetters " " == " " &&
+               lowerFirstTwoLetters " *^~ C *^~ c *^~ D *^~ E *^~" == " *^~ c *^~ c *^~ d *^~ E *^~" &&
                lowerFirstTwoLetters "+^crOc+^oDilE+^" == "+^croc+^odilE+^" && -- Remove if he's not including non-alphabetic characters, I am still waiting to hear back on Slack about this.
-               lowerFirstTwoLetters "cRoCodilE" == "crocodilE"
+               lowerFirstTwoLetters "cRoCodilE" == "crocodilE" &&
+               lowerFirstTwoLetters "cRo+^coDilE" == "cro+^codilE"
           then putStrLn "Works! Check to make sure that you used list library functions or list comprehension and not recursion."
           else putStrLn "Does not work."
