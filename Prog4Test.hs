@@ -1,8 +1,8 @@
 {-
-"Prog2Test.hs" - Test Cases for HW 4 -> Prog4.hs
+"Prog4Test.hs" - Test Cases for HW 4 -> Prog4.hs
 West Chester University - CSC 345 - Programming Language Concepts / Paradigms - Fall 2019
 Original format provided by: Richard Burns , distributed with permission.
-Custom additions for Prog2 by: Mahmoud Gudarzi, Anton Adamovich, and Akash Kumar
+Custom additions for Prog4 by: Mahmoud Gudarzi, Anton Adamovich, and Akash Kumar
 AUTHORS GIVE NO GUARANTEES THAT TEST CASES ARE CORRECT OR COMPLETE.
 INTRUCTOR HAS FINAL WORD CONCERNING THE FUNCTIONALITY OF YOUR CODE.
 YOU ARE ENCOURAGED TO TEST YOUR CODE INDEPENDENTLY.
@@ -23,7 +23,7 @@ takeFst x = if (x == []) then [] else fst (head x) : takeFst (tail x)
 
 main :: IO ()
 main = do
-          putStrLn "Testing Prog2: "
+          putStrLn "Testing Prog4: "
           
           putStr "1. doubleAll: " 
           if   doubleAll	[ 	-5	,	-5	,	-5	]	==	[(-5,-10)	,	(-5,-10)	,	(-5,-10)]	&&
@@ -186,12 +186,12 @@ main = do
           else putStrLn "Does not work."
 
           putStr "5. replicate': "
-          if   replicate' 0 'A' == replicate' 0 'A' &&
-               replicate' 1 '&' == replicate' 1 '&' &&
-               replicate' 2 '^' == replicate' 2 '^' &&
-               replicate' 3 'a' == replicate' 3 'a' &&
-               replicate' 4 '+' == replicate' 4 '+' &&
-               replicate' 5 ' ' == replicate' 5 ' ' 
+          if   replicate' 0 'A' == replicate 0 'A' &&
+               replicate' 1 '&' == replicate 1 '&' &&
+               replicate' 2 '^' == replicate 2 '^' &&
+               replicate' 3 'a' == replicate 3 'a' &&
+               replicate' 4 '+' == replicate 4 '+' &&
+               replicate' 5 ' ' == replicate 5 ' ' 
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
