@@ -94,7 +94,11 @@ main = do
                 depth t5'' == 3 &&
                 depth tree4== 4 &&
                 depth tr2' == 1 &&
-                depth tr2''' == 3 
+                depth tr2''' == 3 &&
+                depth r6 == 3 &&
+                depth w15 == 5 &&
+                depth r7 == 4 &&
+                depth rr5 == 6
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
@@ -105,7 +109,11 @@ main = do
                 balanced t5'' == False &&
                 balanced tree4== False &&
                 balanced tr2' == True &&
-                balanced tr2''' == False 
+                balanced tr2''' == False &&
+                balanced r6 == True &&
+                balanced w15 == True &&
+                balanced r7 == False &&
+                balanced rr5 == False
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
@@ -154,6 +162,64 @@ tree3 :: Tree
 tree3 = Node (tree2) 0 (Leaf 1)
 tree4 :: Tree
 tree4 = Node (Leaf 0) 0 (tree3)
+w0' :: Tree
+w0' = Node (Leaf 101) 86 (Leaf 102)
+w1 :: Tree
+w1 = Node (Leaf 81) 99 (Leaf 80)
+w2 :: Tree
+w2 = Node (Leaf 83) 98 (Leaf 82)
+w3 :: Tree
+w3 = Node (Leaf 85) 97 (Leaf 84)
+w4 :: Tree
+w4 = Node (Leaf 87) 96 (w0')
+w5 :: Tree
+w5 = Node (Leaf 89) 95 (Leaf 88)
+w6 :: Tree
+w6 = Node (Leaf 91) 94 (Leaf 90)
+w7 :: Tree
+w7 = Node (Leaf 11) 7 (Leaf 12)
+w8 :: Tree
+w8 = Node (Leaf 93) 8 (Leaf 92)
+w9 :: Tree
+w9 = Node (w1) 9 (w2)
+w10 :: Tree
+w10 = Node (w3) 10 (w4)
+w11 :: Tree
+w11 = Node (w5) 5 (w6)
+w12 :: Tree
+w12 = Node (w7) 6 (w8)
+w13 :: Tree
+w13 = Node (w9) 1 (w10)
+w14 :: Tree
+w14 = Node (w11) 2 (w12)
+w15 :: Tree
+w15 = Node (w13) 0 (w14)
+rr :: Tree
+rr = Node (Leaf 14) 12 (Leaf 15)
+rr1 :: Tree
+rr1 = Node (rr) 11 (Leaf 13)
+rr2 :: Tree
+rr2 = Node (Leaf 10) 8 (rr1)
+rr3 :: Tree
+rr3 = Node (Leaf 7) 6 (rr2)
+rr4 :: Tree
+rr4 = Node (rr3) 2 (Leaf 5)
+rr5 :: Tree
+rr5 = Node (Leaf 1) 0 (rr4)
+r1 :: Tree
+r1 = Node (Leaf 13) 9 (Leaf 14)
+r2 :: Tree 
+r2 = Node (Leaf 7) 3 (Leaf 8)
+r3 :: Tree
+r3 = Node (Leaf 11) 6 (Leaf 12)
+r4 :: Tree 
+r4 = Node (r1) 5 (Leaf 10)
+r5 :: Tree
+r5 = Node (r2) 1 (Leaf 4)
+r6 :: Tree
+r6 = Node (r4) 2 (r3)
+r7 :: Tree
+r7 = Node (r5) 0 (r6)
 -}
 
           
