@@ -47,12 +47,12 @@ main = do
           else putStrLn "Does not work."
 
           putStr "2. saferemove: "  -- 
-          if    maybeSetToList ((saferemove 1 (Set [1]))) == [] && -- Probably could be EmptySet or (Set []). I'd go with making this equal EmptySet in your own code and not (Set []).
-                maybeSetToList ((saferemove 1 (Set [1,2]))) == [2] &&
+          if    maybeSetToList ((saferemove 1 (Set [1,2]))) == [2] &&
                 maybeSetToList ((saferemove 1 (Set [2,1]))) == [2] &&
                 quicksort (maybeSetToList ((saferemove 1 (Set [1,3,2,4,5])))) == [2,3,4,5] &&
                 quicksort (maybeSetToList ((saferemove 1 (Set [2,3,1,4,5])))) == [2,3,4,5] &&
                 quicksort (maybeSetToList ((saferemove 1 (Set [2,3,5,4,1])))) == [2,3,4,5] 
+                -- maybeSetToList ((saferemove 1 (Set [1]))) == EmptySet
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
@@ -69,6 +69,8 @@ main = do
                 -- union (Set []) EmptySet == EmptySet
                 -- union EmptySet (Set []) == EmptySet
                 -- union (Set []) (Set []) == (Set [])
+                -- union EmptySet (Set [1]) == (Set [1])
+                -- union (Set [1]) EmptySet == (Set [1])
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
@@ -123,7 +125,7 @@ main = do
           else putStrLn "Does not work."
 
           putStr "8. countInteriorNodes: " 
-          if    countInteriorNodes (Leaf 0) == 0 &&
+          if    countInteriorNodes (Leaf 0) == 1 &&
                 countInteriorNodes tr2' == 1 &&
                 countInteriorNodes t10 == 5 &&
                 countInteriorNodes t5 == 7 &&
@@ -167,3 +169,107 @@ main = do
                 balanced rr5 == False
           then putStrLn "Works!"
           else putStrLn "Does not work."
+
+
+tr1 :: Tree
+tr1 = Node (Leaf 15) 16 (Leaf 17)
+tr2 :: Tree
+tr2 = Node (Leaf 18) 19 (Leaf 20)
+tr2' :: Tree
+tr2' = Node (Leaf 3) 0 (Leaf 0)
+tr2'' :: Tree 
+tr2'' = Node (tr2) 1 (tr2')
+tr2''' :: Tree
+tr2''' = Node (Leaf 33) 0 (tr2'')
+t1 :: Tree
+t1 = Node (Leaf 1) 2 (Leaf 3)
+t2 :: Tree 
+t2 = Node (Leaf 4) 5 (Leaf 6)
+t3 :: Tree
+t3 = Node (t1) 8 (t2)
+t4 :: Tree
+t4 = Node (tr1) 13 (tr2)
+t5 :: Tree 
+t5  = Node (t4) 9 (t3)
+t3' :: Tree
+t3' = Node (t1) 8 (Leaf 22)
+t5' :: Tree
+t5' = Node (t4) 9 (t3')
+t5'' :: Tree
+t5'' = Node (t4) 9 (Leaf 8)
+t6 :: Tree
+t6 = Node (Leaf 9) 7 (Leaf 10)
+t7 :: Tree 
+t7 = Node (t6) 6 (Leaf 11)
+t8 :: Tree
+t8 = Node (Leaf 5) 4 (t7)
+t9 :: Tree 
+t9 = Node (Leaf 3) 1 (t8)
+t10 :: Tree
+t10 = Node (t9) 0 (Leaf 2)
+tree1 :: Tree
+tree1 = Node (Leaf 0) 0 (Leaf 3)
+tree2 :: Tree 
+tree2 = Node (Leaf 0) 5 (tree1)
+tree3 :: Tree
+tree3 = Node (tree2) 0 (Leaf 1)
+tree4 :: Tree
+tree4 = Node (Leaf 0) 0 (tree3)
+w0' :: Tree
+w0' = Node (Leaf 101) 86 (Leaf 102)
+w1 :: Tree
+w1 = Node (Leaf 81) 99 (Leaf 80)
+w2 :: Tree
+w2 = Node (Leaf 83) 98 (Leaf 82)
+w3 :: Tree
+w3 = Node (Leaf 85) 97 (Leaf 84)
+w4 :: Tree
+w4 = Node (Leaf 87) 96 (w0')
+w5 :: Tree
+w5 = Node (Leaf 89) 95 (Leaf 88)
+w6 :: Tree
+w6 = Node (Leaf 91) 94 (Leaf 90)
+w7 :: Tree
+w7 = Node (Leaf 11) 7 (Leaf 12)
+w8 :: Tree
+w8 = Node (Leaf 93) 8 (Leaf 92)
+w9 :: Tree
+w9 = Node (w1) 9 (w2)
+w10 :: Tree
+w10 = Node (w3) 10 (w4)
+w11 :: Tree
+w11 = Node (w5) 5 (w6)
+w12 :: Tree
+w12 = Node (w7) 6 (w8)
+w13 :: Tree
+w13 = Node (w9) 1 (w10)
+w14 :: Tree
+w14 = Node (w11) 2 (w12)
+w15 :: Tree
+w15 = Node (w13) 0 (w14)
+rr :: Tree
+rr = Node (Leaf 14) 12 (Leaf 15)
+rr1 :: Tree
+rr1 = Node (rr) 11 (Leaf 13)
+rr2 :: Tree
+rr2 = Node (Leaf 10) 8 (rr1)
+rr3 :: Tree
+rr3 = Node (Leaf 7) 6 (rr2)
+rr4 :: Tree
+rr4 = Node (rr3) 2 (Leaf 5)
+rr5 :: Tree
+rr5 = Node (Leaf 1) 0 (rr4)
+r1 :: Tree
+r1 = Node (Leaf 13) 9 (Leaf 14)
+r2 :: Tree 
+r2 = Node (Leaf 7) 3 (Leaf 8)
+r3 :: Tree
+r3 = Node (Leaf 11) 6 (Leaf 12)
+r4 :: Tree 
+r4 = Node (r1) 5 (Leaf 10)
+r5 :: Tree
+r5 = Node (r2) 1 (Leaf 4)
+r6 :: Tree
+r6 = Node (r4) 2 (r3)
+r7 :: Tree
+r7 = Node (r5) 0 (r6)
