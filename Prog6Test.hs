@@ -112,20 +112,12 @@ main = do
           else putStrLn "Does not work."
 
           putStr "7. countLeaves: " 
-          if    countLeaves (Leaf 0) == 1 &&
-                countLeaves tr2' == 2 &&
-                countLeaves t10 == 6 &&
-                countLeaves t5 == 8 &&
-                countLeaves t5' == 7 &&
-                countLeaves t5'' == 5 &&
-                countLeaves tree4== 5 &&
-                countLeaves tr2' == 2 &&
-                countLeaves tr2''' == 5 
+          if   countLeaves tr2''' == 5 
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
           putStr "8. countInteriorNodes: " 
-          if    countInteriorNodes (Leaf 0) == 1 &&
+          if    countInteriorNodes (Leaf 0) == 0 &&
                 countInteriorNodes tr2' == 1 &&
                 countInteriorNodes t10 == 5 &&
                 countInteriorNodes t5 == 7 &&
