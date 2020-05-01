@@ -64,12 +64,12 @@ main = do
              show (e2) == "(3+2)" &&
              show (e3) == "(6-2)" &&
              show (e4) == "(3*2)" &&
-             (show (e5) == "(6'Div'3)" ||
+             (show (e5) == "(6'div'3)" ||
               show (e5) == "(6/3)") &&
              show (e6) == "(3+(2*4))" &&
-             (show (e7) == "(3+(8*((12'Div'6)*3)))" ||
+             (show (e7) == "(3+(8*((12'div'6)*3)))" ||
               show (e7) == "(3+(8*((12/6)*3)))") &&
-             (show (e8) == "(((6'Div'3)-(3*2))+(((6-2)'Div'(6'Div'3))*(3+2)))" ||
+             (show (e8) == "(((6'div'3)-(3*2))+(((6-2)'div'(6'div'3))*(3+2)))" ||
               show (e8) == "(((6/3)-(3*2))+(((6-2)/(6/3))*(3+2)))")
           then putStrLn "Works!"
           else putStrLn "Does not work."
@@ -79,12 +79,12 @@ main = do
              show (addone e2) == "(4+3)" &&
              show (addone e3) == "(7-3)" &&
              show (addone e4) == "(4*3)" &&
-             (show (addone e5) == "(7'Div'4)" || 
+             (show (addone e5) == "(7'div'4)" || 
               show (addone e5) == "(7/4)") &&
              show (addone e6) == "(4+(3*5))" &&
-             (show (addone e7) == "(4+(9*((13'Div'7)*4)))" || 
+             (show (addone e7) == "(4+(9*((13'div'7)*4)))" || 
               show (addone e7) == "(4+(9*((13/7)*4)))") &&
-             (show (addone e8) == "(((7'Div'4)-(4*3))+(((7-3)'Div'(7'Div'4))*(4+3)))" || 
+             (show (addone e8) == "(((7'div'4)-(4*3))+(((7-3)'div'(7'div'4))*(4+3)))" || 
               show (addone e8) == "(((7/4)-(4*3))+(((7-3)/(7/4))*(4+3)))")
           then putStrLn "Works!"
           else putStrLn "Does not work."
