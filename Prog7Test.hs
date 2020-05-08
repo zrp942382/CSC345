@@ -13,6 +13,7 @@ Dependencies: cabal update
 -}
 module Prog7Test where
 import Prog7
+
 e1, e2, e3 :: Expr
 e1 = Val 5
 e2 = Add (Val 3) (Val 2) -- 5
@@ -22,6 +23,9 @@ e5 = Div (Val 6) (Val 3) -- 2
 e6 = Add (Val 3) (Mul (Val 2) (Val 4)) -- 11
 e7 = Add (Val 3) (Mul (Val 8) (Mul (Div (Val 12) (Val 6)) (Val 3))) -- 51
 e8 = Add (Sub e5 e4) (Mul (Div e3 e5) (e2)) -- 6
+e9 = Sub (Val 3) (Val 3)
+e10 = Div (e2) (e9)
+
 
 double :: Int -> Int
 double x = x * 2
@@ -55,7 +59,8 @@ main = do
           else putStrLn "Does not work."
 
           putStr "3. safeeval: " 
-          if safeeval (Div (Val 3) (Val 0)) == Nothing     
+          if safeeval (Div (Val 3) (Val 0)) == Nothing &&
+             safeeval e10 == Nothing    
           then putStrLn "Works!"
           else putStrLn "Does not work."
 
